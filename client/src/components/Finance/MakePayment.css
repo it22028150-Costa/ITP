@@ -1,0 +1,36 @@
+.cards{
+    display: flex;
+    flex-direction: column;
+    gap: 4%;
+    height: 100%;
+    width: 35%
+}
+
+.layout{
+    display: flex;
+    height: 80%;
+    width: 100%;
+}
+
+.paysummary{
+    width: 65%;
+    height: 100%;
+}
+
+.card{
+    display: flex;
+    
+}
+
+.cardradio{
+    display: flex;
+}
+
+.crdbtn{
+    
+}
+
+.addcrdlink{
+    color: red;
+    text-decoration: none;
+}

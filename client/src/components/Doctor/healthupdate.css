@@ -1,0 +1,39 @@
+.order-update {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    margin-top: 10%;
+    background-color: rgb(198, 220, 212);
+  }
+  
+  .order-update label {
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .order-update input[type="text"],
+  .order-update input[type="date"] {
+    padding: 10px;
+    width:60%;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+  .order-update button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .order-update button:hover {
+    background-color: #0056b3;
+  }
+  

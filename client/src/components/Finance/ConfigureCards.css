@@ -1,0 +1,69 @@
+.cardform {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    gap: 3%;
+}
+
+.createcard{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    margin-top: 2%;
+    font-size: x-large;
+
+}
+
+.formitem{
+    display: flex;
+    gap: 2%
+}
+
+.lbl{
+    width: 20%
+}
+
+.addbtn{
+    width: 48%;
+    margin-top: 5%;
+}
+
+.input{
+    width: 25%
+}
+
+.cardicon {
+    width: 85%;
+    height: 40%;
+    margin-top: 50%;
+    margin-left: 50%;
+}
+
+.cardicons{
+    display: flex;
+    gap: 15%;
+    margin-left: 5%;
+}
+
+.carddetail{
+    margin-top: 5%;
+}
+
+.card{
+    border: solid;
+}
+
+.cards{
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.paysummary{
+    margin-left: 10%;
+}
+
+.merchimg{
+    width: 25%;
+}
+
+

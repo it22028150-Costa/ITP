@@ -1,0 +1,47 @@
+.payment{
+    display: flex;
+    height: 100%;
+}
+.contentout{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar{
+    width: 15%;
+    height: 100%;
+    background-color:rgb(235, 230, 230);
+    display: flex;
+    flex-direction: column;
+    gap:2%
+
+}
+
+.content{
+    background-color: rgba(78, 77, 77, 0.233);
+    width: 80%;
+    height: 90%;
+
+}
+
+.navbar{
+    display: flex;
+    background-color:rgb(235, 230, 230);
+    height: 20%;
+    
+    
+}
+
+.navicon{
+    width: 20%;
+    text-align: center;
+
+}
+
+.iconimg{
+    height: 60%;
+    width: 30%;
+}
