@@ -1,4 +1,4 @@
-const User = require('../models/User')
+let User = require("../models/User")
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt') 
 
@@ -7,12 +7,16 @@ const bcrypt = require('bcrypt')
 //@access Private
 
 const getAllUsers = asyncHandler(async(req,res) => {
-    const users = await User.find().select('-password').lean() //Lean makes sure that the methods are not returned with the response
+    console.log(req.query)
+    const {email} = req.query
+    console.log(email)
+    const users = await User.find({'email':email}).select().lean()
+    console.log(users)
     if (!users?.length){
-        return res.status(400).json({message: 'No users found'})
+        return res.status(400).json({message:`No user found with the email ${email}`})
     }
-    res.json(users)
-})
+    res.json(users)    
+    })
 
 
 
@@ -21,35 +25,34 @@ const getAllUsers = asyncHandler(async(req,res) => {
 //@access Private
 
 const createNewUser = asyncHandler(async(req,res) => {
-    const {username, password, roles} = req.body
 
-    //Confirm data
-    if(!username || !password || !Array.isArray(roles) || !roles.length){
-        return res.status(400).json({message: 'All fields are required'})
-    }
+    const name = req.body.name;
+    const email = req.body.email; 
+    const contact = req.body.contact;
+    const gender = req.body.gender;
+    const dob = req.body.dob; 
+    const address = req.body.address;
+    const username = req.body.username; 
+    const password = req.body.password; 
 
-    //Check for duplicate
-    const duplicate = await User.findOne({username}).lean().exec()
+    const newUser = new User({
+        name,
+        email,
+        contact,
+        gender,
+        dob,
+        address,
+        username,
+        password
 
-    if (duplicate){
-        return res.status(400).json({message: 'Duplicate username'})
-    }
+    })
 
-    // Hash Password
+    newUser.save().then(()=>{
+        res.json("User Added")
+    }).catch((err)=>{
+        console.log(err);
+    })
 
-    const hashedPwd = await bcrypt.hash(password,10) // salt rounds
-
-    const userObject =  {username, "password": hashedPwd, roles}
-
-    // Create and store new user
-
-    const user = await User.create(userObject)
-
-    if (user) {
-        res.status(201).json({message: `New user ${username} created`})
-    } else {
-        res.status(400).json({message: 'Invalid user data recieved'})
-    }
 })
 
 
@@ -59,39 +62,25 @@ const createNewUser = asyncHandler(async(req,res) => {
 //@access Private
 
 const updateUser = asyncHandler(async(req,res) => {
-    const { id, username, roles, active, password } = req.body
+    
+    console.log(req.body)
+    const {name,email,contact,address} = req.body;
 
-    //Confirm data 
-    if (!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean'){
-        return res.status(400).json({message: 'All fields are required'})
+    const updateUser = {
+        name,
+        contact,
+        address
     }
+    console.log(updateUser)
 
-    const user = await User.findByID(id).exec()
+    const update = await User.findOneAndUpdate({"email":email},updateUser).then(()=>{
+        res.status(200).send({status:"User Updated"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({status:"Error updating"});
+    })
 
-    if(!user){
-        return res.status(400).json({message:'User not found'})
-    }
-
-    const duplicate = await User.findOne({username}).lean().exec()
-    //Allow updates to the original user
-    if (duplicate && duplicate?._id.toString() !== id){
-        return res.status(409).json({message: 'Duplicate Username'})
-        
-    }
-
-    user.username = username
-    user.roles = roles
-    user.active = active
-
-    if(password){
-        //Hash Password
-        user.password = await bcrypt.hash(password,10) // salt rounds
-    }
-
-    const updatedUser = await user.save()
-
-    res.json({message: `${updatedUser.username} updated`})
-
+   
 })
 
 
@@ -100,21 +89,22 @@ const updateUser = asyncHandler(async(req,res) => {
 //@access Private
 
 const deleteUser = asyncHandler(async(req,res) => {
-    const {id} = req.body
+    const { id } = req.params;
+    console.log(id)
 
     if(!id){
         return res.status(400).json({message: 'User ID Required'})
     }
 
-    const user = await User.findByID(id).exec()
+    const card = await User.findById(id).exec()
 
-    if(!user){
+    if(!card){
         return res.status(400).json({message: 'User not found'})
     }
     
-    const result = await user.deleteOne()
+    const result = await User.deleteOne()
 
-    const reply = `Username ${result.username} with ID ${result._id} deleted` 
+    const reply = ` User has been deleted` 
 
     res.json(reply)
 
@@ -123,6 +113,19 @@ const deleteUser = asyncHandler(async(req,res) => {
 
 
 
+
+const findUser = asyncHandler(async(req,res) => {
+    console.log(req.query)
+    let {email, password}  = req.query;
+    const currentuser = await User.findOne({email:email});
+    if(password !== currentuser.password){
+        return res.status(400).json({message:'Password Wrong'})
+    }
+
+    res.json({message:'Login succesful'})
+    
+})
+
 module.exports = {
-    getAllUsers, createNewUser, updateUser, deleteUser
+    getAllUsers, createNewUser, updateUser, deleteUser,findUser
 }
