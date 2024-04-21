@@ -30,24 +30,24 @@ const MakePayment = () => {
 
   return (
     <div class='content'>
-            <div class='navbar'>
-                    <div class='navicon'>
+            <div class='navbarpay'>
+                    <div class='naviconpay'>
                         <img class='iconimg' src='/payimg/BankCards.png' alt=''/>
                         <div class='icontext'>Credit/Debit Card</div>
                     </div> 
-                    <div class='navicon'>
+                    <div class='naviconpay'>
                         <img class='iconimg' src='/payimg/BouncedCheck.png' alt=''/>
                         <div class='icontext'>Cheques</div>
                     </div> 
-                    <div class='navicon'>
+                    <div class='naviconpay'>
                         <img class='iconimg' src='/payimg/Star.png' alt=''/>
                         <div class='icontext'>Star Points</div>
                     </div> 
-                    <div class='navicon'>
+                    <div class='naviconpay'>
                         <img class='iconimg' src='/payimg/Launch.png' alt=''/>
                         <div class='icontext'>Koko</div>
                     </div> 
-                    <div class='navicon'>
+                    <div class='naviconpay'>
                         <img class='iconimg' src='/payimg/MaxCDN.png' alt=''/>
                         <div class='icontext'>Mintpay</div>
                     </div> 

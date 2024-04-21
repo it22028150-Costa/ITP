@@ -4,9 +4,9 @@ import './header.css'
 function Header5(){
     return(
         <div>
-<div class="navbar">
-  <a href="/doctor">Home</a>
-  <a href="/doctor/healthdetails">Health Details</a>
+<div class="navbardr">
+  <a class="navicondr" href="/doctor">Home</a>
+  <a class="navicondr" href="/doctor/healthdetails">Health Details</a>
 
   
 </div>

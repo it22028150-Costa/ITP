@@ -27,7 +27,7 @@
 
 }
 
-.navbar{
+.navbarpay{
     display: flex;
     background-color:rgb(235, 230, 230);
     height: 20%;
@@ -35,7 +35,7 @@
     
 }
 
-.navicon{
+.naviconpay{
     width: 20%;
     text-align: center;
 
