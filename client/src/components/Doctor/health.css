@@ -4,7 +4,7 @@
     padding: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  background-color: #bed8f5;
+  background-color: #ebf8ea;
     margin-top:5%;
   }
 
@@ -40,9 +40,9 @@
   }
   
   .add-order button:hover {
-    background-color: #0056b3;
+    background-color: #a5e69d;
   }
   #hbtn{
     position: absolute;
-    top:82%
+    top:110% ;
   }

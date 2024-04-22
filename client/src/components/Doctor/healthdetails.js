@@ -26,7 +26,7 @@ useEffect(()=>{
 
 //delete
 const handledelete= async(id)=>{
-    const data=await axios.delete("http://localhost:3500/doctor/listdr"+id)
+    const data=await axios.delete(`http://localhost:3500/doctor/${id}`)
     if(data.data.success){
         getfetchdata()
         console.log(data.data.message)
@@ -96,7 +96,7 @@ const filterdata = (searchKey) => {
               </tbody>
   </table>
   </div>   <br></br>   <br></br>
-  <button onClick={generatePDF}>Download Repoart</button>
+  <button onClick={generatePDF}>Download Report</button>
         </div>
     )
 }

@@ -15,10 +15,10 @@ const Layout = () => {
                   
                   
                   <div class="navButtons">
-                      <button id="homeBtn" class="navBtn">Home</button>
+                      <a id="homeBtn" href='/' class="navBtn">Home</a>
                       <button class="navBtn">Customer Support</button>
-                      <button class="navBtn">Find a Doctor</button>
-                      <button class="navBtn">Pharmacy</button>
+                      <a class="navBtn" href="/doctor">Doctor Availablility</a>
+                      <a class="navBtn" href='/finance/pay'>Payments</a>
                       <button class="navBtn">Fitness</button>
                       <button class="navBtn">Resources</button>
                       

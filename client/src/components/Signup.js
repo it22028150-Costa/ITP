@@ -75,7 +75,7 @@ export default function Signup(){
 
             <div class="mb-3">
                 <label for="contact" >Phone number </label>
-                <input type="tel" class="form-control" id="contact" placeholder="Enter your contact number" maxLength={10}
+                <input type="tel" class="form-control" id="contact" placeholder="Enter your contact number" maxLength={10} minLength={10}
                 onChange ={(e)=>{
                     setContact(e.target.value);
                 }}/>

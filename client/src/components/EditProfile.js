@@ -128,6 +128,8 @@ export default function EditProfile(){
             
 
             </form>
+            <br/>
+
             <button type="submit" class="btn btn-primary" onClick={deleteUser}>Delete Profile</button>
         </div>
     )

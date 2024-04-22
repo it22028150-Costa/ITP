@@ -6,3 +6,7 @@
 .navicondr{
   color: rgba(22, 26, 23, 0.784);
 }
+
+.navbardr a {
+  margin-right: 30px; /* Adjust the value as needed */
+}
