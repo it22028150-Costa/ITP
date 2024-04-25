@@ -8,33 +8,33 @@ const cardDetailsSchema = new mongoose.Schema({
 
     nameoncard: {
         type: String,
-        
+        required:true
     },
 
     useremail: {
         type: String,
-        
+        required:true
 
     },
 
     cardno: {
         type: Number,
-        
+        required:true
     },
 
     merchant: {
         type: String,
-        
+        required:true
 
     },
     expdate: {
         type: Date,
-        
+        required:true
     },
 
     cvv: {
         type: String,
-        
+        required:true
     }
     
 })
