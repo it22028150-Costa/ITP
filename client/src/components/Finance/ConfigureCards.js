@@ -9,7 +9,6 @@ const ConfigureCards = () => {
     
     const [cards, setcards] = useState([]);
     const [nameoncard,setnameoncards] = useState('');
-    // const [useremail,setuseremail] = useState('sanjana.test@gmail.com');
     const useremail = localStorage.getItem('currentUser')
     const [cardno,setcardno] = useState();
     const [merchant,setmerchant] =useState('Mastercard');
@@ -106,32 +105,33 @@ const ConfigureCards = () => {
                         <form class="cardform" onSubmit={handleSubmit}>
                             <div class="formitem">
                                 <label class="lbl">Name on Card:</label>
-                                <input class="input" type="text" placeholder='NS DE COSTA' value={nameoncard} onChange={(e) => setnameoncards(e.target.value)}/>
+                                <input class="input" type="text" placeholder='NS DE COSTA' value={nameoncard} onChange={(e) => setnameoncards(e.target.value)} required/>
                             </div>
                             <div class="formitem">
                                 <label class="lbl">Card No:</label>
                                 <input class="input" type="text" id="cc-number" name="cc-number" inputmode="numeric"  maxlength="16" minLength="16" 
-                                placeholder="xxxx xxxx xxxx xxxx" required  value={cardno} onChange={(e) => setcardno(e.target.value)}/>
+                                placeholder="xxxx xxxx xxxx xxxx" required  value={cardno} onChange={(e) => setcardno(e.target.value)} />
                             </div>
 
+
+                            <div class="formitem">
+                                <label class="lbl">Exp Date:</label>
+                                <input class="input" type="month" value={expdate} onChange={(e) => setexpdate(e.target.value)} required/>
+                            </div>
+                            <div class="formitem">
+                                <label class="lbl">CVV:</label>
+                                <input class="input" type="number" value={cvv} onChange={(e) => setcvv(e.target.value)} required/>
+                            </div>
+                            
                             <div class="formitem">
                                 <label class="lbl">Merchant</label>
                                 <div class="cardradio">
                                 <input type="radio" id="html" name="fav_language" value="MasterCard"  checked/>
                                 <label for="html">Mastercard</label><br></br>
-                                <input type="radio" id="css" name="fav_language" onClick={(e) => setmerchant("Visa")} value="Visa"/>
+                                <input type="radio" id="css" name="fav_language" onChange={(e) => setmerchant("Visa")} value="Visa"/>
                                 <label for="css">Visa</label><br></br>
                                 </div>
                                 
-                            </div>
-
-                            <div class="formitem">
-                                <label class="lbl">Exp Date:</label>
-                                <input class="input" type="month" value={expdate} onChange={(e) => setexpdate(e.target.value)}/>
-                            </div>
-                            <div class="formitem">
-                                <label class="lbl">CVV:</label>
-                                <input class="input" type="number" value={cvv} onChange={(e) => setcvv(e.target.value)}/>
                             </div>
 
                             <button class="addbtn" type='submit'>Add Card</button>

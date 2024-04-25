@@ -18,7 +18,7 @@ const Layout = () => {
                       <a id="homeBtn" href='/' class="navBtn">Home</a>
                       <button class="navBtn">Customer Support</button>
                       <a class="navBtn" href="/doctor">Doctor Availablility</a>
-                      <a class="navBtn" href='/finance/pay'>Payments</a>
+                      <a class="navBtn" href='/finance'>Payments</a>
                       <button class="navBtn">Fitness</button>
                       <button class="navBtn">Resources</button>
                       

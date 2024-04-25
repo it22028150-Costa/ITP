@@ -6,7 +6,6 @@ const FinanceLayout = () => {
   return (
     <div class='payment'>
         <div class='sidebar'>
-            <div>Make Payment</div>
             <div>View Order Details</div>
             <div>Payment History</div>
         </div>

@@ -12,7 +12,11 @@ import { Link, Outlet } from 'react-router-dom';
 const CardPay = () => {
     console.log(window.currentUser)
     const [cards, setcards] = useState([]);
+    const [selectedCard, setSelectedCard] = useState(null);
     
+    const handleCardSelection = (cardId) => {
+        setSelectedCard(cardId);
+    };
 
     useEffect(() => {
         const fetchCards = async () => {
@@ -31,12 +35,27 @@ const CardPay = () => {
 
     },[]);
 
+    const handlePayment = async () => {
+        if (!selectedCard) {
+            alert('Please select a card');
+            return;
+        }
+
+        try {
+            await axios.post('http://localhost:3500/pay', { cardId: selectedCard });
+            alert('Payment successful');
+        } catch (err) {
+            console.error(err);
+            alert('Payment failed');
+        }
+    };
+
 
   return (
         <>
             <div class="cards">
                 {cards.map(cards =>(
-                    <div key={cards._id} class="card"> 
+                    <div key={cards._id} className={`card ${selectedCard === cards._id ? 'selected' : ''}`} onClick={() => handleCardSelection(cards._id)}> 
                         {cards.merchant === "Visa" ? (
                             <img class="merchimg" src='/payimg/Visa.png' alt=''/>
                         ) : cards.merchant === "Mastercard" ? (
@@ -55,6 +74,10 @@ const CardPay = () => {
                     
                     
                 <Link class='addcrdlink' to="/finance/card">Add/Remove Cards </Link>
+
+                <div className="paysummary">
+                <button className="paybutton" onClick={handlePayment}>Pay</button>
+                </div>
                     
             </div>
 
