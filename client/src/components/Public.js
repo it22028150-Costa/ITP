@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import "./Public.css";
 
 const Public = () => {
+  if(localStorage.getItem('currentUser')){
+    localStorage.removeItem('currentUser');
+    console.log('Removed login information');
+  }else{
+    console.log('No saved Login information')
+  }
   return (
     <section className="public">
       <header>

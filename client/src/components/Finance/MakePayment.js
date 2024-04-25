@@ -2,43 +2,26 @@ import React, { useEffect,useState } from 'react'
 import './FinanceLayout.css'
 import axios from "axios";
 import './MakePayment.css';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 
 
 const MakePayment = () => {
-    const [cards, setcards] = useState([]);
     
-
-    useEffect(() => {
-        const fetchCards = async () => {
-            try{
-                const response = await axios.get('http://localhost:3500/payments',{
-                    params: {useremail: 'sanjana.test@gmail.com'
-                    }
-                });
-                setcards(response.data);
-                console.log(cards)
-            }catch(err){
-                console.error(err);
-            }
-        };
-        fetchCards(); 
-
-    },[]);
+    
     
 
   return (
     <div class='content'>
             <div class='navbarpay'>
-                    <div class='naviconpay'>
+                    <a href='/finance/pay/cardpay' class='naviconpay'>
                         <img class='iconimg' src='/payimg/BankCards.png' alt=''/>
                         <div class='icontext'>Credit/Debit Card</div>
-                    </div> 
-                    <div class='naviconpay'>
+                    </a> 
+                    <a href='/finance/pay/chequepay' class='naviconpay'>
                         <img class='iconimg' src='/payimg/BouncedCheck.png' alt=''/>
                         <div class='icontext'>Cheques</div>
-                    </div> 
+                    </a> 
                     <div class='naviconpay'>
                         <img class='iconimg' src='/payimg/Star.png' alt=''/>
                         <div class='icontext'>Star Points</div>
@@ -55,7 +38,7 @@ const MakePayment = () => {
             </div>
 
             <div class='layout'>
-                    <div class="cards">
+                    {/* <div class="cards">
                     {cards.map(cards =>(
                             <div key={cards._id} class="card"> 
                                 {cards.merchant === "Visa" ? (
@@ -81,7 +64,8 @@ const MakePayment = () => {
 
                     <div class="paysummary">
                         <div>Test</div>
-                    </div>
+                    </div> */}
+                    <Outlet/>
             </div>
     </div>        
     

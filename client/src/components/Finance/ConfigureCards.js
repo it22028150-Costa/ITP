@@ -9,7 +9,8 @@ const ConfigureCards = () => {
     
     const [cards, setcards] = useState([]);
     const [nameoncard,setnameoncards] = useState('');
-    const [useremail,setuseremail] = useState('sanjana.test@gmail.com');
+    // const [useremail,setuseremail] = useState('sanjana.test@gmail.com');
+    const useremail = localStorage.getItem('currentUser')
     const [cardno,setcardno] = useState();
     const [merchant,setmerchant] =useState('Mastercard');
     const [expdate,setexpdate] = useState();
@@ -23,7 +24,7 @@ const ConfigureCards = () => {
         const fetchCards = async () => {
             try{
                 const response = await axios.get('http://localhost:3500/payments',{
-                    params: {useremail: 'sanjana.test@gmail.com'
+                    params: {'useremail': useremail
                     }
                 });
                 setcards(response.data);

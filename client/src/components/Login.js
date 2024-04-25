@@ -11,9 +11,10 @@ export default function Login(){
     const[passwordadd,setPassword] = useState("");
     const navigate = useNavigate();
     const[showSuccessModal,setShowSuccessModal] = useState("false");
-
+    
 
     function log(e){
+        
         e.preventDefault()
         axios.get(`http://localhost:3500/user/get`,{params:{email: emailadd, password:passwordadd}}).
         then((result)=>{
@@ -21,6 +22,8 @@ export default function Login(){
             if(result.data.message === "Login successful"){     
                 console.log(result.data.message)              
             }
+            localStorage.setItem('currentUser',emailadd)
+            console.log(`The current user is ${localStorage.getItem('currentUser')}`)
             setShowSuccessModal(true);
             window.location.href ='/header';  
         }).catch((err)=>{
