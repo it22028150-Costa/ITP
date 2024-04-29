@@ -22,6 +22,14 @@ const payOrderSchema = new mongoose.Schema({
     paymentStatus:{
         type: Boolean,
         default: false
+    },
+
+    paymentMethod:{
+        type: String
+    },
+
+    cardId:{
+        type: String
     }
 },{
     collection: 'payOrder' 

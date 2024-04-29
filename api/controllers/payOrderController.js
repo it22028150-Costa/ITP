@@ -21,7 +21,7 @@ const getOrderDetails = asyncHandler(async(req,res) => {
 // //@access Private
 
 const updateOrder = asyncHandler(async(req,res) => {
-    const { _id } = req.body
+    const { _id, paymentStatus, paymentMethod, cardId } = req.body
 
     //Confirm data 
     if (!_id ){

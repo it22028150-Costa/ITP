@@ -13,9 +13,11 @@ const CardPay = () => {
     console.log(window.currentUser)
     const [cards, setcards] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
+    const [orderId, setOrderId] = useState(null)
     
     const handleCardSelection = (cardId) => {
         setSelectedCard(cardId);
+        
     };
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const CardPay = () => {
                     }
                 });
                 setcards(response.data);
-                console.log(cards)
+                
             }catch(err){
                 console.error(err);
             }
@@ -42,7 +44,9 @@ const CardPay = () => {
         }
 
         try {
-            await axios.post('http://localhost:3500/pay', { cardId: selectedCard });
+            const paymentMethod = "Card"
+            const update = {selectedCard,paymentMethod}
+            await axios.patch('http://localhost:3500/payorders', update);
             alert('Payment successful');
         } catch (err) {
             console.error(err);

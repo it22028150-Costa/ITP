@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const {createOrderDetails} = require('../controllers/payOrderController')
+const {createOrderDetails,getOrderDetails,updateOrder} = require('../controllers/payOrderController')
   
-// router.get('/',getSavedDetails)
+router.get('/',getOrderDetails)
 router.post('/',createOrderDetails)
-// router.delete('/:id',deleteCardDetails)    
+router.patch('/',updateOrder)    
     
 
 module.exports = router    
