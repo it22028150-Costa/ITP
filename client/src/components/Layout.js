@@ -20,7 +20,7 @@ const Layout = () => {
                       <a class="navBtn" href="/doctor">Doctor Availablility</a>
                       <a class="navBtn" href='/finance'>Payments</a>
                       <button class="navBtn">Fitness</button>
-                      <button class="navBtn">Resources</button>
+                      <a class="navBtn" href='/article'>Articles</a>
                       
                   </div>
                   
