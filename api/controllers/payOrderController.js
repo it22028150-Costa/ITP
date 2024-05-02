@@ -21,20 +21,23 @@ const getOrderDetails = asyncHandler(async(req,res) => {
 // //@access Private
 
 const updateOrder = asyncHandler(async(req,res) => {
-    const { _id, paymentStatus, paymentMethod, cardId } = req.body
+    console.log(req.body)
+    const { _id, paymentMethod, cardId } = req.body
 
     //Confirm data 
     if (!_id ){
         return res.status(400).json({message: 'All fields are required'})
     }
 
-    const order = await Order.findByID(id).exec()
+    const order = await Order.findById(_id).exec()
 
     if(!order){
         return res.status(400).json({message:'Order not found'})
     }
 
     order.paymentStatus = true;
+    order.paymentMethod = paymentMethod;
+    order.cardId = cardId;
     
 
     

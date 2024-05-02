@@ -7,7 +7,7 @@ import './ConfigureCards.css'
 const CreateOrder = () => {
 
     const [order, setorder] = useState([]);
-    const useremail = localStorage.getItem('currentUser')
+    const [useremail, setemail] =useState("")
     const [orderDetails,setOrderDetails] = useState("");
     const [orderQty,setOrderQty] =useState();
     const [orderAmount,setOrderAmount] = useState();
@@ -34,6 +34,10 @@ const CreateOrder = () => {
                         </div>
 
                         <form class="cardform" onSubmit={handleSubmit}>
+                            <div class="formitem">
+                                <label class="lbl">User Email:</label>
+                                <input class="input" type="text" placeholder='Nemail' value={useremail} onChange={(e) => setemail(e.target.value)} required/>
+                            </div>
                             <div class="formitem">
                                 <label class="lbl">Order Details:</label>
                                 <input class="input" type="text" placeholder='NS DE COSTA' value={orderDetails} onChange={(e) => setOrderDetails(e.target.value)} required/>

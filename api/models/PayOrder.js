@@ -30,7 +30,7 @@ const payOrderSchema = new mongoose.Schema({
 
     cardId:{
         type: String
-    }
+    },
 },{
     collection: 'payOrder' 
 });

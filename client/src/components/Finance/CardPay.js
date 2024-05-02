@@ -12,7 +12,7 @@ import { Link, Outlet } from 'react-router-dom';
 const CardPay = () => {
     console.log(window.currentUser)
     const [cards, setcards] = useState([]);
-    const [selectedCard, setSelectedCard] = useState(null);
+    const [selectedCard, setSelectedCard] = useState("");
     const [orderId, setOrderId] = useState(null)
     
     const handleCardSelection = (cardId) => {
@@ -45,7 +45,8 @@ const CardPay = () => {
 
         try {
             const paymentMethod = "Card"
-            const update = {selectedCard,paymentMethod}
+            const _id = localStorage.getItem('payOrder')
+            const update = {_id,selectedCard,paymentMethod}
             await axios.patch('http://localhost:3500/payorders', update);
             alert('Payment successful');
         } catch (err) {

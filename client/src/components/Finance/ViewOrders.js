@@ -46,8 +46,8 @@ const ViewOrders = () =>{
         filterdata(searchkey);
     }
     const filterdata = (searchKey) => {
-        const filteredData = orders.filter(customer =>
-            customer.date.toLowerCase().includes(searchKey.toLowerCase())
+        const filteredData = orders.filter(orders =>
+            orders.orderDetails.toLowerCase().includes(searchKey.toLowerCase())
         );
         setOrder(filteredData);
     }
@@ -55,7 +55,7 @@ const ViewOrders = () =>{
     return(
         <div className="showorders">
              <div className='searchbtn'>
-        <input  type="date" onChange={(e)=>setsearchkey(e.target.value)} placeholder='search' className='in'/> <t></t> 
+        <input  type="text" onChange={(e)=>setsearchkey(e.target.value)} placeholder='search' className='in'/> <t></t> 
        
         <button  id='search-btn'  onClick={(e)=>handlesearch(e)}> search </button>
         </div>   
