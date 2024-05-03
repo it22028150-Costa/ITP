@@ -18,9 +18,11 @@ const Layout = () => {
                       
                       <a class="navBtn" href="/pharmacy">Pharmacy</a>
                       <a class="navBtn" href="/doctor">Doctor Availablility</a>
+                      <a class="navBtn" href='/appointment'>Appointments</a>
                       <a class="navBtn" href='/finance'>Payments</a>
                       <a class="navBtn" href='/fitness'>Fitness</a>
                       <a class="navBtn" href='/article'>Articles</a>
+                      <a class="navBtn" href='/complaint'>Complaint</a>
                       <a id="homeBtn" href='/' class="navBtn">Sign Out</a>
                       
                   </div>
