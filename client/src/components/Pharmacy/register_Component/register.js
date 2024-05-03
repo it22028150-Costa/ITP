@@ -39,7 +39,7 @@ function Register() {
                 <input type="password" id="password" name="password" onChange={handleOnChange} /><br /><br />
                 <button id="regbtn">Register</button>
             <br />
-            <a href="login">Already have an account? Login</a>
+            <a href="/fitness/login">Already have an account? Login</a>
             </form>
 
         </div>

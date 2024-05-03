@@ -5,7 +5,7 @@ function Header(){
     return(
         <div>
 <div class="navbar">
-  <a href="/">Home</a>
+  <a href="/pharmacy">Register</a>
   <a href="/pharmacy/registerdetails">Register Details</a>
 
   <a href="/pharmacy/adddilivery">Add Delivery</a>
