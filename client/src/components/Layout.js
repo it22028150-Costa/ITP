@@ -15,26 +15,19 @@ const Layout = () => {
                   
                   
                   <div class="navButtons">
-                      <a id="homeBtn" href='/' class="navBtn">Home</a>
+                      
                       <a class="navBtn" href="/pharmacy">Pharmacy</a>
                       <a class="navBtn" href="/doctor">Doctor Availablility</a>
                       <a class="navBtn" href='/finance'>Payments</a>
                       <a class="navBtn" href='/fitness'>Fitness</a>
                       <a class="navBtn" href='/article'>Articles</a>
+                      <a id="homeBtn" href='/' class="navBtn">Sign Out</a>
                       
                   </div>
                   
                   
                   
-                  <div class="navSearch">
-
-                      
-                      <div class="searchFull">
-                      <img id="searchGlass"src="/search.png" alt="search" width="15px" height="15px"/>
-                      <input id="searchbar" type="text" placeholder="Search.."/>
-                      </div>
-
-                  </div>
+                  
               </div>
 
             </div>

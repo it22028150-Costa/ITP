@@ -46,3 +46,9 @@
     height: 60%;
     width: 30%;
 }
+
+#navbtnfn{
+    text-decoration: none;
+    margin-left: 20px;
+    margin-top: 10px;
+}

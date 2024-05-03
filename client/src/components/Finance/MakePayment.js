@@ -7,12 +7,17 @@ import { Link, Outlet } from 'react-router-dom';
 
 
 const MakePayment = () => {
-    
+  
+    const orderDetails = localStorage.getItem("payOrderDetail")
+    const orderQty = localStorage.getItem('payOrderQty');
+    const orderAmount = localStorage.getItem('payOrderAmount');
+    console.log(orderQty)
     
     
 
   return (
     <div class='content'>
+        
             <div class='navbarpay'>
                     <a href='/finance/pay/cardpay' class='naviconpay'>
                         <img class='iconimg' src='/payimg/BankCards.png' alt=''/>
@@ -37,35 +42,36 @@ const MakePayment = () => {
                     
             </div>
 
+            
+
+              
             <div class='layout'>
-                    {/* <div class="cards">
-                    {cards.map(cards =>(
-                            <div key={cards._id} class="card"> 
-                                {cards.merchant === "Visa" ? (
-                                    <img class="merchimg" src='/payimg/Visa.png' alt=''/>
-                                ) : cards.merchant === "Mastercard" ? (
-                                    <img class="merchimg" src='/payimg/MastercardLogo.png' alt=''/>
-                                ) : (
-                                    <img class="merchimg" src='/payimg/Visa.png' alt=''/>
-                                )}
-                                
-                                <div class="cardinfo">
-                                    <div class ="carddetail" id='cardno'>{cards.cardno}</div>
-                                    <div class ="carddetail" id= 'cardname'>{cards.nameoncard}</div>
-                                </div>     
-           
-                            </div>
-                        ))}
-                        
-                           
-                        <Link class='addcrdlink' to="/finance/card">Add/Remove Cards </Link>
-                        
+                    <div className='cards'>
+                         <Outlet/>
                     </div>
 
                     <div class="paysummary">
-                        <div>Test</div>
-                    </div> */}
-                    <Outlet/>
+                        <div id="ordersummarytxt">Order Summary</div>
+                        <div class="ordersummaryfn">
+                            <div>
+                            <div>Description</div>
+                            <div>{orderDetails}</div>
+                            </div>
+
+                            <div>
+                            <div>Quantity</div>
+                            <div>{orderQty}</div>
+                            </div>
+
+                            <div>
+                            <div>Amount</div>
+                            <div>{orderAmount}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+            
             </div>
     </div>        
     

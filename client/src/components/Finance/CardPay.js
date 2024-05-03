@@ -15,12 +15,16 @@ const CardPay = () => {
     const [selectedCard, setSelectedCard] = useState("");
     const [orderId, setOrderId] = useState(null)
     
+    
     const handleCardSelection = (cardId) => {
         setSelectedCard(cardId);
         
     };
 
     useEffect(() => {
+        console.log(localStorage.getItem("payOrder"));
+        
+        
         const fetchCards = async () => {
             try{
                 const response = await axios.get('http://localhost:3500/payments',{
@@ -80,15 +84,11 @@ const CardPay = () => {
                     
                 <Link class='addcrdlink' to="/finance/card">Add/Remove Cards </Link>
 
-                <div className="paysummary">
-                <button className="paybutton" onClick={handlePayment}>Pay</button>
-                </div>
+                
                     
             </div>
 
-            <div class="paysummary">
-                <div>Test</div>
-            </div>
+            
         </>
   )
 }

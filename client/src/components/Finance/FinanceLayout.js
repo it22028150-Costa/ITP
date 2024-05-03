@@ -6,8 +6,8 @@ const FinanceLayout = () => {
   return (
     <div class='payment'>
         <div class='sidebar'>
-            <div>View Order Details</div>
-            <div>Payment History</div>
+            <a href='/finance' id="navbtnfn">Payment History</a>
+            <a href='/finance/card' id="navbtnfn">Edit Card Details</a>
         </div>
 
         <div class='contentout'>

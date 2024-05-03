@@ -2,3 +2,50 @@
     visibility: hidden;
 }
 
+.showordersfn{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+}
+
+.viewnavfn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+
+.viewtablefn{
+    display: flex;
+    margin-top: 5%;
+    
+
+}
+
+.paymenttable{
+    border-collapse: separate;
+    border: 1px solid black;
+}
+
+.headerrowfn{
+    text-align: left;
+    
+}
+
+.headerfn,
+.cellfn {
+    border: 1px solid black; /* Add a 1px solid black border */
+    padding: 8px; /* Optional: Add padding for better spacing */
+}
+
+
+
+
+
+
+
+
+
+

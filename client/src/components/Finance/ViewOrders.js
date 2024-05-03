@@ -27,7 +27,10 @@ const ViewOrders = () =>{
     },[]);
 
     const paynow = (e1) => {
-        localStorage.setItem('payOrder',e1) 
+        console.log(e1);
+        localStorage.setItem('payOrderDetail',e1.orderDetails);
+        localStorage.setItem('payOrderQty',e1.orderQty);
+        localStorage.setItem('payOrderAmount',e1.orderAmount);
     };
 
 
@@ -53,51 +56,61 @@ const ViewOrders = () =>{
     }
 
     return(
-        <div className="showorders">
-             <div className='searchbtn'>
-        <input  type="text" onChange={(e)=>setsearchkey(e.target.value)} placeholder='search' className='in'/> <t></t> 
+        <div class="showordersfn">
+            <div class="viewnavfn">
+            <div class='searchbtnfn'>
+                <input  type="text" onChange={(e)=>setsearchkey(e.target.value)} placeholder='Details..' class='infn'/> <t></t> 
        
-        <button  id='search-btn'  onClick={(e)=>handlesearch(e)}> search </button>
-        </div>   
-        <br></br>   <br></br>
-                <div ref={componentPDF} style={{width:'100%'}}>
- <table>
-              
-              
- <tr>
-              <th> Description</th>
-              <th>Qty</th>
-              <th>Amount</th>
-              <th>Paid</th>
-              </tr>
-  
+                <button  id='search-btnfn'  onClick={(e)=>handlesearch(e)}> Search </button>
+            </div>
+            <div class="searchbtnfn" >
+            <button onClick={generatePDF}>Download Report</button>   
+                <br></br>   <br></br>
+            </div>    
+            </div> 
 
-              <tbody>
-                  { 
-                     orders.map((e1)=>{
-                      return(
-                          <tr key={e1._id}> 
-                            <td> {e1.orderDetails}</td> 
-                            <td> {e1.orderQty}</td> 
-                            <td> {e1.orderAmount}</td> 
-                            <td> {`${e1.paymentStatus === false ? 'Not Paid' : 'Paid'}`}</td>
-                             
-                           
-                            <td>
-                              <a onClick={()=>paynow(e1._id)} href={`${e1.paymentStatus === false ? '/finance/pay' : 'Download Receipt'}`} >{`${e1.paymentStatus === false ? 'Pay Now' : 'Download Receipt'}`}</a>
-                              
-                            </td>
-                        
-                          </tr>
-                      )
+            <div class="viewtablefn">  
+            <div ref={componentPDF} style={{width:'100%'}}>
+                    <table class="paymenttable">
+                
+                
+                            <tr className='headerrowfn'>
+                                <th class="headerfn"> Description</th>
+                                <th class="headerfn">Qty</th>
+                                <th class="headerfn">Amount</th>
+                                <th class="headerfn">Paid</th>
+                                <th class="headerfn">Link</th>
+                            </tr>
+                
 
-              })
-                  }
-              </tbody>
-  </table>
-  </div>   <br></br>   <br></br>
-  <button onClick={generatePDF}>Download Report</button>
+                        <tbody>
+                            { 
+                                orders.map((e1)=>{
+                                return(
+                                    <tr class="tablerowfn" key={e1._id}> 
+                                        <td class="cellfn" id="celldetail"> {e1.orderDetails}</td> 
+                                        <td class="cellfn" id="cellqty"> {e1.orderQty}</td> 
+                                        <td class="cellfn" id="cellamount"> {e1.orderAmount}</td> 
+                                        <td class="cellfn" id="cellstatus"> {`${e1.paymentStatus === false ? 'Not Paid' : 'Paid'}`}</td>
+                                        
+                                    
+                                        <td class="cellfn" id="cellbutton">
+                                        <a onClick={()=>paynow(e1)} href={`${e1.paymentStatus === false ? '/finance/pay' : 'Download Receipt'}`}  >{`${e1.paymentStatus === false ? 'Pay Now' : 'Download Receipt'}`}</a>
+                                        
+                                        </td>
+                                    
+                                    </tr>
+                                    )
+
+                                })
+                            }
+                        </tbody>
+                     </table>
+            </div>
+            </div>    
+             <br></br>   <br></br>
+            
         </div>
     )
 }
-export default ViewOrders;
+export default ViewOrders
