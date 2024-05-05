@@ -10,3 +10,7 @@
 .navbardr a {
   margin-right: 30px; /* Adjust the value as needed */
 }
+
+.navbardr{
+  padding: 0.8%;
+}
