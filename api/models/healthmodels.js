@@ -5,13 +5,7 @@ const healthschema=mongoose.Schema({
     specialization:String,
     hospital:String,
     date:String,
-
-  
- 
-     
- 
    
-
 },{
     timestamps:true
 
