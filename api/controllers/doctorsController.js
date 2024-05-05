@@ -1,11 +1,14 @@
 const healthmodel = require("../models/healthmodels");
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt') 
+const Doctor = require("../models/Doctor")
+
 
 const getDoctorDetails = asyncHandler(async(req,res)=>{
-    const data= await healthmodel.find({})
+    const data= await Doctor.find({}).select().lean()
+    console.log(data)
   
-    res.json({success:true,data:data})
+    res.json(data)
 })
 
 const createDoctor = asyncHandler(async(req,res)=>{

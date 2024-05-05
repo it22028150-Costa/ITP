@@ -6,13 +6,10 @@ import { Routes, Route} from 'react-router-dom';
 function Header(){
     return(
                 <div>
-<div class="navbardrlm">
-  <a class="navicondrlm" href="#"><b>Appointments</b></a>
+  <div class="navbardrlm">
+  <a class="navicondrlm" href="/appointment"><b>Appointments</b></a>
   <a class="navicondrlm" href="/edit"><b>Profile</b></a>
-  <a class="navicondrlm" href="#"><b>Find a Doctor</b></a>
 
-
-  
 </div>
 
       <div>

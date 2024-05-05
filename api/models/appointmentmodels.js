@@ -4,11 +4,6 @@ const appointmentschema=mongoose.Schema({
     date:String,
     time:String,
     remarks:String,
-  
- 
-     
- 
-   
 
 },{
     timestamps:true

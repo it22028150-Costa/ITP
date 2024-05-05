@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react"
 import axios from "axios";  
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route,Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import "./Forms.css";
 
@@ -40,6 +40,11 @@ export default function Login(){
 
     return(
         <div>
+
+<div>
+                    <p><Link to="/doctor/doctorlogin">Doctor Login </Link></p>
+                </div>
+
             <label style={{ fontSize: 30, fontWeight: "bold", textAlign:"center" }}>HealthHub Login</label>
             <h5>Please login to proceed</h5>
         <div className="container">
@@ -68,6 +73,10 @@ export default function Login(){
 
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+
+            <div>
+                    <p>Admin? <Link to="/admin/login">Login here</Link></p>
+                </div>
 
         </div>
         </div>

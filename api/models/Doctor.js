@@ -9,12 +9,6 @@ const doctorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-   
-    doctorID: {
-        type: Boolean,
-        required: true
-
-    },
 
     name: {
         type: String,
@@ -46,11 +40,6 @@ const doctorSchema = new mongoose.Schema({
 
     },
 
-    availability: {
-        type: Date,
-        required: true
-
-    },
     
     
     
