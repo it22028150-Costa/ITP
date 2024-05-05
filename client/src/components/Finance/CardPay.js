@@ -49,7 +49,7 @@ const CardPay = () => {
 
         try {
             const paymentMethod = "Card"
-            const _id = localStorage.getItem('payOrder')
+            const _id = localStorage.getItem('payOrderId')
             const update = {_id,selectedCard,paymentMethod}
             await axios.patch('http://localhost:3500/payorders', update);
             alert('Payment successful');
@@ -84,11 +84,12 @@ const CardPay = () => {
                     
                 <Link class='addcrdlink' to="/finance/card">Add/Remove Cards </Link>
 
-                
+                <div className="paysummary">
+                <button className="paybutton" onClick={handlePayment}>Pay</button>
+                </div>
                     
             </div>
 
-            
         </>
   )
 }

@@ -45,12 +45,12 @@ function AddFitness(){
     <lable>Address:</lable>
     <input type="text" id="address" name="address" onChange={handleonchange}/><br></br>
     <lable>Email:</lable>
-    <input type="text" id="u_email" name="u_email" onChange={handleonchange}/><br></br> 
+    <input type="email" id="u_email" name="u_email" onChange={handleonchange}/><br></br> 
     <lable>Fitness Goals:</lable>
     <input type="text" id="f_goals" name="f_goals" onChange={handleonchange}/><br></br> 
     <lable>Preferences:</lable>
     <input type="text" id="preferences" name="preferences" onChange={handleonchange}/><br></br> 
-    <button>Add Details</button>
+    <button id="fitbtnsub">Add Details</button>
 
     </form><br></br> 
    

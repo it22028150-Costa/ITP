@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 4%;
     height: 100%;
-    width: 80%
+    width: 100%
 }
 
 .layout{
@@ -13,12 +13,14 @@
 }
 
 .paysummary{
-    width: 100%;
+    width: 80%;
     height: 100%;
 }
 
 .card{
     display: flex;
+    width: 300px;
+    height: 100px;
     
 }
 

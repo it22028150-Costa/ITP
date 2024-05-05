@@ -8,6 +8,7 @@ router.put('/:id',updateDoctor)
 router.delete('/:id',deleteDoctor) 
 router.get('/count',countApp)
 router.get('/order/:id',orderApp)
+router.get('/')
 
 
 module.exports = router    
