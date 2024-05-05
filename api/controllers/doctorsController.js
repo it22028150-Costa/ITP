@@ -51,10 +51,12 @@ const createReservations = asyncHandler(async(req,res) => {
 })
 
 
+
 const getDoctorDetails = asyncHandler(async(req,res)=>{
-    const data= await healthmodel.find({})
+    const data= await Doctor.find({}).select().lean()
+    console.log(data)
   
-    res.json({success:true,data:data})
+    res.json(data)
 })
 
 

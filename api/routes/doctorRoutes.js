@@ -9,6 +9,7 @@ router.post('/',createDoctor)
 router.put('/:id',updateDoctorr)
 router.get('/count',countApp)
 router.get('/order/:id',orderApp)
+router.get('/')
 
 router.get('/',getAllDoctors)
 router.post('/add',createNewDoctor)

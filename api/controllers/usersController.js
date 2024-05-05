@@ -126,6 +126,13 @@ const findUser = asyncHandler(async(req,res) => {
     
 })
 
+const getEveryUser = asyncHandler(async(req,res)=>{
+    const data= await User.find({})
+    
+  
+    res.json(data)
+})
+
 module.exports = {
-    getAllUsers, createNewUser, updateUser, deleteUser,findUser
+    getAllUsers, createNewUser, updateUser, deleteUser,findUser,getEveryUser
 }

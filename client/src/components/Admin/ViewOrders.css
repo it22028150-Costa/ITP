@@ -1,0 +1,53 @@
+.paymenttable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.headerrowfn {
+    background-color: #f2f2f2;
+}
+
+.headerfn, .cellfn {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    border: 1px solid #ddd;
+}
+
+.searchbtnfn {
+    margin-bottom: 10px;
+}
+
+.infn {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#search-btnfn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#search-btnfn:hover {
+    background-color: #0056b3;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}

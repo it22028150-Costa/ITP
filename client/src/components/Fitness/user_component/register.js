@@ -4,56 +4,36 @@ import './register.css'
 
 
 function Register(){
-    const [order,setorder]=useState({
+    const [order,setorder] = useState({
         fname:"",
         lname:"",
         email:"",
         password:"",
-    })
+    });
 
-    const [error, seterror] = useState("");
-
-    const handleOnchange=(e)=>{
-        const {value,name}=e.target
-        setorder((preve)=>{
-               return{
-                ...preve,
+    const handleOnchange = (e) => {
+        const { value,name }= e.target;
+        setorder((prev) => ({
+                ...prev,
                 [name]:value
-               }
-          })
+               
+          }));
        
         
-    }
+    };
 
-    const handleValidation = (e) => {
-        if (!order.email.match(/\+@\S+\.\S+/)){
-            seterror("Invalid email address");
-            return false;
-        }
-        seterror("");
-        return true;
-    }
+   
     
-    const handleSubmit=async(e)=>{
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = await axios.post("https://localhost:3500/fitnessuser/create_user", order);
+        console.log(data)
+        alert("Registration Successful!");
+    };
+        
      
-       e.preventDefault();
-       if (handleValidation()){
-        try{
-            const data=await axios.post("https://localhost:3500/fitnessuser/create_user",order);
-            console.log(data)
-            alert("Registration Successful!");
-        }catch (error){
-            console.error("Error:",error);
-            //Handle error here//
-        }
-    }
-         
-     
-    }
-
-
     return(
-        <div className="add-order">
+        <div className="register">
         
 <h2>Registation Form</h2>
     <form onSubmit={handleSubmit}>

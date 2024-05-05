@@ -28,6 +28,7 @@ const ViewOrders = () =>{
 
     const paynow = (e1) => {
         console.log(e1);
+        localStorage.setItem('payOrderId',e1._id)
         localStorage.setItem('payOrderDetail',e1.orderDetails);
         localStorage.setItem('payOrderQty',e1.orderQty);
         localStorage.setItem('payOrderAmount',e1.orderAmount);

@@ -57,7 +57,7 @@ const MakePayment = () => {
                             <div>Description</div>
                             <div>{orderDetails}</div>
                             </div>
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
                             <div>
                             <div>Quantity</div>
                             <div>{orderQty}</div>

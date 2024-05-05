@@ -85,7 +85,7 @@ const filterdata = (searchKey) => {
                          
                            
                             <td>
-                              <a href={`/updatecomplaint/${e1._id}`}>Edit Complaint</a>
+                              <a href={`/complaint/updatcomplaint/${e1._id}`}>Edit Complaint</a>
                               <button onClick={()=>handledelete(e1._id)}>Delete </button>
                             </td>
                           </tr>
