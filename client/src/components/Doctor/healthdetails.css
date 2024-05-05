@@ -1,51 +1,77 @@
+/* healthdetails.css */
+
 .showorders {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 10%;
+  padding: 20px;
 }
 
-.showorders table {
+.searchbtn {
+  margin-bottom: 20px;
+}
+
+.in {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#search-btn {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+}
+
+#search-btn:hover {
+  background-color: #0056b3;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Add horizontal scrollbar if needed */
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-  background-color: #c0c4c7;
 }
 
-.showorders th,
-.showorders td {
-  border: 1px solid #ddd;
-  padding: 8px;
+th, td {
+  padding: 12px 8px;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-.showorders th {
-  background-color: #c7e385;
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
-.showorders tbody tr:nth-child(even) {
+tr:hover {
   background-color: #f9f9f9;
 }
 
-.showorders tbody tr:hover {
-  background-color: #f2f2f2;
-}
-
-.showorders a {
-  text-decoration: none;
-  color: #007bff;
-  margin-right: 10px;
-}
-
-.showorders a:hover {
-  text-decoration: underline;
-}
-
-.showorders button {
-  padding: 5px 10px;
-  background-color: #007bff;
+button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
   border: none;
-  border-radius: 5px;
-  color: #fff;
+  border-radius: 4px;
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
