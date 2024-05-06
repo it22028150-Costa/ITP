@@ -1,30 +1,35 @@
 import React from "react";
 import './Header.css'
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, Link} from 'react-router-dom';
 
 
 function Header(){
     return(
-                <div>
-  <div class="navbardrlm">
-  <a class="navicondrlm" href="/appointment"><b>Appointments</b></a>
-  <a class="navicondrlm" href="/edit"><b>Profile</b></a>
 
+
+<div className="horizontal-buttons">
+  <a href="/appointment">
+  <button className="image-button"> 
+    <img src="./img1.jpg" alt="Button 1" /> <h1>Appointments</h1>
+  </button>
+  </a>
+
+  <a href="/edit">
+  <button className="image-button"> 
+    <img src="./img1.jpg" alt="Button 1" /> <h1>Profile</h1>
+  </button>
+  </a>
+
+
+  <a href="/finance">
+  <button className="image-button"> 
+    <img src="./img1.jpg" alt="Button 1" /> <h1>Payments</h1>
+  </button>
+  </a>
 </div>
 
-      <div>
 
-      </div>
 
-            {/* Search Form */}
-            <div className="container mt-3">
-              
-        <form className="d-flex">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button className="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>   
     )
 }
 

@@ -6,6 +6,28 @@ const bcrypt = require('bcrypt')
 //@route Get /users
 //@access Private
 
+
+const loginuser = asyncHandler(async(req,res) => {
+
+    console.log(req.query)
+    const {email,password} = req.query;
+    const user = await User.findOne({email:email})
+    if(!email || !password){
+        return res.status(400).json({message:'Require both email and password'})
+    }
+    if(!user){
+        return res.status(400).json({message:'No User Found'})
+    }
+
+    if(user.password !== password){
+        return res.status(400).json({message:'Password Does not match'})
+    }
+
+    res.json(user)
+    
+})
+
+
 const getAllUsers = asyncHandler(async(req,res) => {
     console.log(req.query)
     const {email} = req.query
@@ -26,14 +48,20 @@ const getAllUsers = asyncHandler(async(req,res) => {
 
 const createNewUser = asyncHandler(async(req,res) => {
 
-    const name = req.body.name;
-    const email = req.body.email; 
-    const contact = req.body.contact;
-    const gender = req.body.gender;
-    const dob = req.body.dob; 
-    const address = req.body.address;
-    const username = req.body.username; 
-    const password = req.body.password; 
+    const { name, email, contact, gender, dob, address, username, password } = req.body;
+
+
+    if (!name || !email || !contact || !gender || !dob || !address || !username || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
+
+
+    const check = await User.findOne({'email':email}).select().lean()
+    console.log(check)
+
+    if(check){
+        return res.status(400).json({message:'Duplicate email'})
+    }
 
     const newUser = new User({
         name,
@@ -134,5 +162,5 @@ const getEveryUser = asyncHandler(async(req,res)=>{
 })
 
 module.exports = {
-    getAllUsers, createNewUser, updateUser, deleteUser,findUser,getEveryUser
+    getAllUsers, createNewUser, updateUser, deleteUser,findUser,getEveryUser,loginuser
 }
