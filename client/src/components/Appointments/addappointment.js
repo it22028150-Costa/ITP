@@ -6,9 +6,11 @@ import './appointment.css'
 function Appointment(){
     const [order,setorder]=useState({
     doctor:"",
+    patientemail:localStorage.getItem("currentUser"),
     date:"",
     time:"",
     remarks:"",
+    amount:0,
     })
 
     const handleonchange=(e)=>{
@@ -44,9 +46,11 @@ function Appointment(){
     <lable>Select Date:</lable>
     <input type="date" id="date" name="date" onChange={handleonchange}/><br></br> <br></br>
     <lable>Select Time:</lable>
-    <input type="text" id="time" name="time" onChange={handleonchange}/><br></br> 
+    <input type="time" id="time" name="time" onChange={handleonchange}/><br></br> 
     <lable>Add Remarks to Doctor:</lable>
     <input type="text" id="remarks" name="remarks" onChange={handleonchange}/><br></br>
+    <lable>Amount:</lable>
+    <input type="number" id="amount" name="amount" onChange={handleonchange}/><br></br>
 
     <button type="submit">Create reservation</button>
 

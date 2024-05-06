@@ -15,7 +15,6 @@ router.get("/_appointment",async(req,res)=>{
 
 
 router.post("/create_appointment",async(req,res)=>{
-    console.log(req)
     console.log(req.body)
     const data=new appointmentmodel(req.body)
     await data.save()
