@@ -1,4 +1,4 @@
-const Order = require('../models/PayOrder')
+const Order = require('../models/appointmentmodels')
 const asyncHandler = require('express-async-handler')
 const Card = require('../models/CardDetails')
  
@@ -9,11 +9,17 @@ const Card = require('../models/CardDetails')
 
 const getOrderDetails = asyncHandler(async(req,res) => {
     const {useremail} = req.query
-    const list = await Order.find({'useremail': useremail}).select().lean() //Lean makes sure that the methods are not returned with the response
+
+    if(!useremail){
+        return res.status(400).json({message: `Please Sign into view Payment Details `})
+    }
+
+    const list = await Order.find({'patientemail': useremail}).select().lean() //Lean makes sure that the methods are not returned with the response
     if (!list?.length){
         return res.status(400).json({message: `No Order details for ${useremail} found`})
     }
     res.json(list)
+    console.log(list)
 })
 
 

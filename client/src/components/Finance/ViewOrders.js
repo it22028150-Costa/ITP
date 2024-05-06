@@ -20,6 +20,8 @@ const ViewOrders = () =>{
               console.log(orders)
           }catch(err){
               console.error(err);
+              alert(err.response.data.message)
+              window.location.href ='/loginpg';
           }
       };
       fetchOrders(); 
@@ -29,8 +31,7 @@ const ViewOrders = () =>{
     const paynow = (e1) => {
         console.log(e1);
         localStorage.setItem('payOrderId',e1._id)
-        localStorage.setItem('payOrderDetail',e1.orderDetails);
-        localStorage.setItem('payOrderQty',e1.orderQty);
+        localStorage.setItem('payOrderDetail',e1.doctor);
         localStorage.setItem('payOrderAmount',e1.orderAmount);
     };
 
@@ -77,7 +78,8 @@ const ViewOrders = () =>{
                 
                             <tr className='headerrowfn'>
                                 <th class="headerfn"> Description</th>
-                                <th class="headerfn">Qty</th>
+                                <th class="headerfn">Date</th>
+                                <th class="headerfn">Time</th>
                                 <th class="headerfn">Amount</th>
                                 <th class="headerfn">Paid</th>
                                 <th class="headerfn">Link</th>
@@ -89,14 +91,15 @@ const ViewOrders = () =>{
                                 orders.map((e1)=>{
                                 return(
                                     <tr class="tablerowfn" key={e1._id}> 
-                                        <td class="cellfn" id="celldetail"> {e1.orderDetails}</td> 
-                                        <td class="cellfn" id="cellqty"> {e1.orderQty}</td> 
-                                        <td class="cellfn" id="cellamount"> {e1.orderAmount}</td> 
-                                        <td class="cellfn" id="cellstatus"> {`${e1.paymentStatus === false ? 'Not Paid' : 'Paid'}`}</td>
+                                        <td class="cellfn" id="celldetail"> {e1.doctor}</td> 
+                                        <td class="cellfn" id="celldetail"> {e1.date}</td>
+                                        <td class="cellfn" id="celldetail"> {e1.time}</td>
+                                        <td class="cellfn" id="cellamount"> {e1.amount}</td> 
+                                        <td class="cellfn" id="cellstatus"> {`${e1.paid === false ? 'Not Paid' : 'Paid'}`}</td>
                                         
                                     
                                         <td class="cellfn" id="cellbutton">
-                                        <a onClick={()=>paynow(e1)} href={`${e1.paymentStatus === false ? '/finance/pay' : 'Download Receipt'}`}  >{`${e1.paymentStatus === false ? 'Pay Now' : 'Download Receipt'}`}</a>
+                                        <a onClick={()=>paynow(e1)} href={`${e1.paid === false ? '/finance/pay' : ''}`}  >{`${e1.paid === false ? 'Pay Now' : 'Payment Complete'}`}</a>
                                         
                                         </td>
                                     
