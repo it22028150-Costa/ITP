@@ -50,12 +50,13 @@ const updateOrder = asyncHandler(async(req,res) => {
     if(!order){
         return res.status(400).json({message:'Order not found'})
     }
-
-    order.paymentStatus = true;
+    console.log("Setting true")
+    order.paid = true;
     
+    console.log(order)
     const updatedOrder = await order.save()
 
-    res.json({message: `${updatedOrder.username} updated`})
+    res.json({message: `Order updated`})
 
 })
 
