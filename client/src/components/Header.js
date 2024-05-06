@@ -10,22 +10,24 @@ function Header(){
 <div className="horizontal-buttons">
   <a href="/appointment">
   <button className="image-button"> 
-    <img src="./img1.jpg" alt="Button 1" /> <h1>Appointments</h1>
+    <img src="./appointment.jpg" alt="Button 1" /> <h1>Appointments</h1>
   </button>
   </a>
 
   <a href="/edit">
   <button className="image-button"> 
-    <img src="./img1.jpg" alt="Button 1" /> <h1>Profile</h1>
+    <img src="./pro.jpg" alt="Button 1" /> <h1>Profile</h1>
   </button>
   </a>
 
 
   <a href="/finance">
   <button className="image-button"> 
-    <img src="./img1.jpg" alt="Button 1" /> <h1>Payments</h1>
+    <img src="./payment.png" alt="Button 1" /> <h1>Payments</h1>
   </button>
   </a>
+
+  
 </div>
 
 

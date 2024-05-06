@@ -12,7 +12,6 @@ const Public = () => {
   return (
 
     <div id='bgimage'>
-    <section className="public">
 
     <section className="public" class="background">
 
@@ -58,7 +57,6 @@ const Public = () => {
       </div>
 
 
-      </main>
       <footer>
 
       <address>
@@ -71,12 +69,6 @@ const Public = () => {
 
       </footer>
 
-        <button>
-          <Link to="/signup">Sign up</Link>
-        </button>
-        <button>
-          <Link to="/loginpg">Login</Link>
-        </button>
       </main>
      
 
