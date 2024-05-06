@@ -19,8 +19,22 @@
     border: 1px solid #ddd;
 }
 
+
+.table-container {
+    overflow: visible; /* Change overflow to visible */
+}
+
+.paymenttable {
+    width: 100%; /* Set table width to 100% */
+    table-layout: auto; /* Use automatic table layout */
+}
+
+.cellfn {
+    word-wrap: break-word; /* Enable word wrapping for long text */
+}
+
 .searchbtnfn {
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .infn {
@@ -29,7 +43,7 @@
 }
 
 #search-btnfn {
-    padding: 5px 10px;
+    padding: 10px 10px;
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -38,9 +52,14 @@
 
 #search-btnfn:hover {
     background-color: #0056b3;
+
+
 }
 
+
 button {
+    width: 90%;
+    height: 60%;
     padding: 5px 10px;
     background-color: #28a745;
     color: #fff;
