@@ -40,6 +40,10 @@ const doctorSchema = new mongoose.Schema({
 
     },
 
+    fee:{
+        type:Number
+    }
+
     
     
     
