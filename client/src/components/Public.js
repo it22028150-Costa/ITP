@@ -10,8 +10,12 @@ const Public = () => {
     console.log('No saved Login information')
   }
   return (
+
     <div id='bgimage'>
     <section className="public">
+
+    <section className="public" class="background">
+
       <header>
         <h1>Welcome to <span className="nowrap">HealthHub</span></h1>
       </header>
@@ -64,7 +68,18 @@ const Public = () => {
           <a href="tel:+94112412265">011-2412265</a>
         </address>
 
+
       </footer>
+
+        <button>
+          <Link to="/signup">Sign up</Link>
+        </button>
+        <button>
+          <Link to="/loginpg">Login</Link>
+        </button>
+      </main>
+     
+
     </section>
     </div>
   );

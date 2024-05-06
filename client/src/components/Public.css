@@ -66,6 +66,7 @@
     background-color: #0056b3;
   }
 
+
   .button-container {
     display: flex; /* Use flexbox to align buttons horizontally */
   }
@@ -137,4 +138,17 @@
   .hdrimg{
     width:300px;
   }
+
+  .background {
+    display: flex;
+    background-image: url(./gg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
   

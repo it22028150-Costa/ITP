@@ -1,9 +1,9 @@
 import  { useEffect, useState,useRef } from 'react'
 import axios from "axios"
-import './regitserdetails.css'
+import './complaintdetails.css'
 import {useReactToPrint} from "react-to-print";
 
-function RegisterDetails(){
+function ComplaintDetails(){
     const componentPDF=useRef();
     const [showdiscounts,setshowdiscounts]=useState([]);
     const [searchkey,setsearchkey]=useState('');
@@ -11,7 +11,7 @@ function RegisterDetails(){
 //read
 const getfetchdata=async()=>{
     try{
-    const data=await axios.get("http://localhost:3500/compaintuser/_customer")
+    const data=await axios.get("http://localhost:3500/complaints/_complaint")
     console.log(data.data.success)
     if(data.data.success){
         setshowdiscounts(data.data.data)
@@ -26,7 +26,7 @@ useEffect(()=>{
 
 //delete
 const handledelete= async(id)=>{
-    const data=await axios.delete("http://localhost:3500/compaintuser/delete_customer/"+id)
+    const data=await axios.delete("http://localhost:3500/complaints/delete_complaint/"+id)
     if(data.data.success){
         getfetchdata()
         console.log(data.data.message)
@@ -46,7 +46,7 @@ const handlesearch = (e) => {
 }
 const filterdata = (searchKey) => {
     const filteredData = showdiscounts.filter(customer =>
-        customer.fname.toLowerCase().includes(searchKey.toLowerCase())
+        customer.contact.toLowerCase().includes(searchKey.toLowerCase())
     );
     setshowdiscounts(filteredData);
 }
@@ -63,30 +63,30 @@ const filterdata = (searchKey) => {
               
               
  <tr>
-              <th>First Name</th>
-              <th>Last Name </th>
-              <th>Email Address</th>
-              <th>Password</th>
+              <th>Contact Number</th>
+              <th>Email Address  </th>
+              <th>Complaint Type</th>
+              <th>Description</th>
               <th>Action</th>
               </tr>
      
-
+    
 
               <tbody>
                   { 
                      showdiscounts.map((e1)=>{
                       return(
                           <tr> 
-                            <td> {e1.fname}</td> 
-                            <td> {e1.lname}</td> 
-                            <td> {e1.email}</td> 
-                            <td> {e1.password}</td> 
+                            <td> {e1.contact}</td> 
+                            <td> {e1.c_email}</td> 
+                            <td> {e1.c_type}</td> 
+                            <td> {e1.c_type}</td> 
                             
                          
                            
                             <td>
-                              <a href={`/complaint/updateuser/${e1._id}`}>Edit Details</a>
-                              <button onClick={()=>handledelete(e1._id)}>Delete Details</button>
+                              <a href={`/complaint/updatcomplaint/${e1._id}`}>Edit Complaint</a>
+                              <button onClick={()=>handledelete(e1._id)}>Delete </button>
                             </td>
                           </tr>
                       )
@@ -100,4 +100,4 @@ const filterdata = (searchKey) => {
         </div>
     )
 }
-export default RegisterDetails;
+export default ComplaintDetails;

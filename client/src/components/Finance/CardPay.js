@@ -4,6 +4,7 @@ import './FinanceLayout.css'
 import axios from "axios";
 import './MakePayment.css';
 import { Link, Outlet } from 'react-router-dom';
+import './CardPay.css'
 
 
 
@@ -14,10 +15,13 @@ const CardPay = () => {
     const [cards, setcards] = useState([]);
     const [selectedCard, setSelectedCard] = useState("");
     const [orderId, setOrderId] = useState(null)
+    const [cvv,setcvv] = useState([])
     
     
     const handleCardSelection = (cardId) => {
         setSelectedCard(cardId);
+        console.log(selectedCard)
+        
         
     };
 
@@ -42,19 +46,29 @@ const CardPay = () => {
     },[]);
 
     const handlePayment = async () => {
-        if (!selectedCard) {
+        if (!selectedCard ) {
             alert('Please select a card');
+            return;
+        }
+        if(cvv.length !== 3 || !cvv) {
+            console.log(cvv)
+            alert('Please enter a CVV')
             return;
         }
 
         try {
             const paymentMethod = "Card"
-            const _id = localStorage.getItem('payOrder')
-            const update = {_id,selectedCard,paymentMethod}
-            await axios.patch('http://localhost:3500/payorders', update);
-            alert('Payment successful');
+            const _id = localStorage.getItem('payOrderId')
+            console.log(selectedCard,cvv)
+            const update = {_id,selectedCard,paymentMethod,cvv}
+            await axios.patch('http://localhost:3500/payorders', update)
+            .then(response=>{
+                alert(response.data.message)
+            })
+            
         } catch (err) {
             console.error(err);
+            alert(err.response.data.message)
             alert('Payment failed');
         }
     };
@@ -76,7 +90,9 @@ const CardPay = () => {
                         <div class="cardinfo">
                             <div class ="carddetail" id='cardno'>{cards.cardno}</div>
                             <div class ="carddetail" id= 'cardname'>{cards.nameoncard}</div>
-                        </div>     
+                            <input type='number' onChange={(e)=> setcvv(e.target.value)} className ={`carddetail ${selectedCard === cards._id ? '' : 'cvv'}`}  placeholder='Enter CVV'/>
+                        </div>  
+                           
 
                     </div>
                 ))}
@@ -84,11 +100,12 @@ const CardPay = () => {
                     
                 <Link class='addcrdlink' to="/finance/card">Add/Remove Cards </Link>
 
-                
+                <div className="paysummary">
+                <button className="paybutton" onClick={handlePayment}>Pay</button>
+                </div>
                     
             </div>
 
-            
         </>
   )
 }

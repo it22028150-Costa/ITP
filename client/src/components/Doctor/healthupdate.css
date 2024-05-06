@@ -1,39 +1,43 @@
+/* healthupdate.css */
+
 .order-update {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    margin-top: 10%;
-    background-color: a5e69d(198, 220, 212);
-  }
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Set width to 100% */
+}
+
+.order-update h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.order-update label {
+  display: block;
+  margin-bottom: 5px;
+  background-color: #007bff;
   
-  .order-update label {
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .order-update input[type="text"],
-  .order-update input[type="date"] {
-    padding: 10px;
-    width:60%;
-    margin-bottom: 30px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  
-  .order-update button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .order-update button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+.order-update input {
+  width: calc(100% - 16px); /* Adjust input width to fill container with padding */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.order-update button {
+  width: 100%; /* Set button width to 100% */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.order-update button:hover {
+  background-color: #0056b3;
+}

@@ -1,5 +1,6 @@
 const Order = require('../models/PayOrder')
 const asyncHandler = require('express-async-handler')
+const Card = require('../models/CardDetails')
  
 
 //@desc Get Orders assigned to a user 
@@ -22,12 +23,21 @@ const getOrderDetails = asyncHandler(async(req,res) => {
 
 const updateOrder = asyncHandler(async(req,res) => {
     console.log(req.body)
-    const { _id, paymentMethod, cardId } = req.body
+    const { _id, selectedCard,cvv } = req.body
+    
 
     //Confirm data 
-    if (!_id ){
-        return res.status(400).json({message: 'All fields are required'})
+    if (!_id || !selectedCard || !cvv){
+        return res.status(400).json({message: 'Please provide required details'})
     }
+
+    const card = await Card.findById(selectedCard)
+
+    if(card.cvv !== cvv){
+        return res.status(400).json({message: 'CVV Code Incorrect'})
+    }
+
+
 
     const order = await Order.findById(_id).exec()
 
@@ -36,12 +46,7 @@ const updateOrder = asyncHandler(async(req,res) => {
     }
 
     order.paymentStatus = true;
-    order.paymentMethod = paymentMethod;
-    order.cardId = cardId;
     
-
-    
-
     const updatedOrder = await order.save()
 
     res.json({message: `${updatedOrder.username} updated`})

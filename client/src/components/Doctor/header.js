@@ -5,7 +5,8 @@ function Header5(){
     return(
         <div>
 <div class="navbardr">
-  <a class="navicondr" href="/doctor">Dashboard</a>
+  <a class="navicondr" href="/doctor/reservations">         Appointments</a>
+  <a class="navicondr" href="/doctor">Add  Availablility</a>
   <a class="navicondr" href="/doctor/healthdetails">Doctor Availablility</a>
 
   

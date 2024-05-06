@@ -77,7 +77,7 @@ function UpdateFitness(){
     <lable>Address:</lable>
     <input type="text" id="address" name="address"  onChange={handleInputChange} value={updateorder?.address }/><br></br>
     <lable>Email:</lable>
-    <input type="text" id="u_email" name="u_email" onChange={handleInputChange} value={updateorder?.u_email }/><br></br> 
+    <input type="email" id="u_email" name="u_email" onChange={handleInputChange} value={updateorder?.u_email }/><br></br> 
     <lable>Fitness Goals:</lable>
     <input type="text" id="f_goals" name="f_goals"  onChange={handleInputChange} value={updateorder?.f_goals }/><br></br> 
     <lable>Preferences:</lable>
