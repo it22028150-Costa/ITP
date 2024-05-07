@@ -35,7 +35,7 @@ function Appointment(){
     date:"",
     time:"",
     remarks:"",
-    amount:0,
+    amount:4500,
     })
 
     const handleonchange=(e)=>{
@@ -67,23 +67,23 @@ function Appointment(){
 <h2>Appointment Booking</h2>
     <form onSubmit={handlesubmit}>
     <lable> Select Doctor:</lable>
-    <select name="doctor" id="doctor" onChange={handleonchange}>
+    <input type="text" id="doctor" name="doctor" list="drlist" onChange={handleonchange}/><br></br>
+    <datalist  id="drlist" onChange={handleonchange}>
         {
             doctor.map((e)=>{
                 return(
-                    <option value={`${e.name}`}>{e.name}</option>
+                    <option value={`${e.name}`}></option>
                 )
             })
         }
-    </select>
+    </datalist>
     <lable>Select Date:</lable>
     <input type="date" id="date" name="date" onChange={handleonchange}/><br></br> <br></br>
     <lable>Select Time:</lable>
     <input type="time" id="time" name="time" onChange={handleonchange}/><br></br> 
     <lable>Add Remarks to Doctor:</lable>
     <input type="text" id="remarks" name="remarks" onChange={handleonchange}/><br></br>
-    <lable>Amount:</lable>
-    <input type="number" id="amount" name="amount" onChange={handleonchange}/><br></br>
+    
 
     <button type="submit">Create reservation</button>
 

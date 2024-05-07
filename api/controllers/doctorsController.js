@@ -100,7 +100,7 @@ const getAllDoctors = asyncHandler(async(req,res) => {
 const createNewDoctor = asyncHandler(async(req,res) => {
         console.log(req.body)
 
-        const { name, Email, password, hospital, gender, contactNumber, specialization, availability} = req.body 
+        const { name, Email, password, hospital, gender, contactNumber, specialization, fee} = req.body 
          
     
         const doctor = {
@@ -111,13 +111,13 @@ const createNewDoctor = asyncHandler(async(req,res) => {
             gender,
             contactNumber,
             specialization,
-            availability
+            fee
     
         }
 
         console.log(doctor)
 
-        const reserve = await Doctor.create(newDoctor)
+        const reserve = await Doctor.create(doctor)
 
 
         if (reserve) {
@@ -126,11 +126,7 @@ const createNewDoctor = asyncHandler(async(req,res) => {
             res.status(400).json({message: 'Invalid user data recieved'})
         }
     
-        // Doctor.save().then(()=>{
-        //     res.json("User Added")
-        // }).catch((err)=>{
-        //     console.log(err);
-        // })
+        
     
     })
 

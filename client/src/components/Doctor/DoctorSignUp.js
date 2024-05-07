@@ -12,6 +12,7 @@ export default function DoctorSignup(){
     const[hospital,sethospital]= useState("");
     const[specialization,setspecialization] = useState("");
     const[password,setPassword] = useState("");
+    const[fee,setfee] = useState()
     const[showSuccessModal,setShowSuccessModal] = useState("false");
 
 
@@ -26,7 +27,8 @@ export default function DoctorSignup(){
             gender,
             hospital,
             specialization,
-            password
+            password,
+            fee
 
         }
 
@@ -128,6 +130,14 @@ export default function DoctorSignup(){
                 <input type="password" class="form-control" id="password" placeholder="Enter your password"
                 onChange ={(e)=>{
                     setPassword(e.target.value);
+                }}/>
+            </div>
+
+            <div class="mb-3">
+                <label for="fee" >Fee </label>
+                <input type="number" class="form-control" id="fee" placeholder="Enter your Fee per Reservation"
+                onChange ={(e)=>{
+                    setfee(e.target.value);
                 }}/>
             </div>
 
