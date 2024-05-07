@@ -90,7 +90,7 @@ export default function EditProfile(){
 
     return(
 
-        <div class ="container">
+        <div class ="containeredt">
 
 
             <form onSubmit={sendData} style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>

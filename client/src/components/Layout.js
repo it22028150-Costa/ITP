@@ -22,8 +22,10 @@ const Layout = () => {
                       <a class="navBtn" href='/finance'>Payments</a>
                       <a class="navBtn" href='/fitness'>Fitness</a>
                       <a class="navBtn" href='/article'>Articles</a>
+
                       <a class="navBtn" href='/complain'>Complaint</a>
                       <a id="homeBtn" href='/' class="navBtn">Sign Out</a>
+
                       
                   </div>
                   

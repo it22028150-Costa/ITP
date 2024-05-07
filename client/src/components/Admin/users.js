@@ -4,8 +4,10 @@ import { useReactToPrint } from "react-to-print";
 import './ViewOrders.css';
 
 
+
 const UserAdmins = () => {
-    const componentPDF = useRef();
+    const componentPDFUsers = useRef(); // Ref for users table
+    const componentPDFDoctors = useRef(); 
     const [users, setUsers] = useState([]);
     const [searchKey, setSearchKey] = useState('');
     // const componentPDF = useRef();
@@ -42,35 +44,54 @@ const UserAdmins = () => {
     }, []);
 
 
-    // Generate PDF
-    const handlePrint = useReactToPrint({
-        content: () => componentPDF.current,
+      // Generate PDF for users
+      const handlePrintUsers = useReactToPrint({
+        content: () => componentPDFUsers.current,
         documentTitle: "User Details Report",
-        onAfterPrint: () => alert("Data saved in PDF")
+        onAfterPrint: () => alert("User data saved in PDF")
+    });
+
+    // Generate PDF for doctors
+    const handlePrintDoctors = useReactToPrint({
+        content: () => componentPDFDoctors.current,
+        documentTitle: "Doctor Details Report",
+        onAfterPrint: () => alert("Doctor data saved in PDF")
     });
 
     // Search users
     const handleSearch = () => {
+        console.log("Search Key:", searchKey);
+        console.log("Users:", users);
         const filteredData = users.filter(user =>
             user.name.toLowerCase().includes(searchKey.toLowerCase())
         );
         setUsers(filteredData);
     };
+    
+    
 
     return (
         <div className="showordersfn">
             <div className="viewnavfn">
-                <div className='searchbtnfn'>
-                    <input type="text" onChange={(e) => setSearchKey(e.target.value)} placeholder='Search by Name...' className='infn' />
+                
+            <div className='searchbtnfn'>
+            <input type="text" value={searchKey} onChange={(e) => setSearchKey(e.target.value)} placeholder='Search by Name...' className='infn' />
                     <button id='search-btnfn' onClick={handleSearch}>Search</button>
                 </div>
+
+                <br></br>
+                <br></br>
                 <div className="searchbtnfn">
-                    <button onClick={handlePrint}>Download Report</button>
+                <br></br>
+                    <button  onClick={handlePrintUsers}>User Report</button> <br></br><br></br>
+                    <button onClick={handlePrintDoctors}>Doctor Report</button>
+
                 </div>
             </div>
 
             <div className="viewtablefn">
-                <div ref={componentPDF} className="table-container">
+                <div ref={componentPDFUsers} className="table-container">
+                    <h2>Users</h2>
                     <table className="paymenttable">
                         <thead>
                             <tr className='headerrowfn'>
@@ -104,8 +125,11 @@ const UserAdmins = () => {
                 </div>
             </div>
             <div className="viewtablefn">
-                <div ref={componentPDF} className="table-container">
+                <div ref={componentPDFDoctors} className="table-container">
+                <h2>Doctors</h2>
+
                     <table className="paymenttable">
+
                         <thead>
                             <tr className='headerrowfn'>
                                 <th className="headerfn">Name</th>
@@ -134,6 +158,7 @@ const UserAdmins = () => {
 };
 
 
+export default UserAdmins
 
 
 // const DoctorAdmins = () => {
@@ -211,5 +236,4 @@ const UserAdmins = () => {
 //     );
 // };
 
-export default UserAdmins
 

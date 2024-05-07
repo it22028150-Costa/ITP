@@ -16,7 +16,7 @@ export default function Login(){
     function log(e){
         
         e.preventDefault()
-        axios.get(`http://localhost:3500/user/get`,{params:{email: emailadd, password:passwordadd}}).
+        axios.get(`http://localhost:3500/user/loginpg`,{params:{email: emailadd, password:passwordadd}}).
         then((result)=>{
             
             if(result.data.message === "Login successful"){     
@@ -47,7 +47,7 @@ export default function Login(){
 
             <label style={{ fontSize: 30, fontWeight: "bold", textAlign:"center" }}>HealthHub Login</label>
             <h5>Please login to proceed</h5>
-        <div className="container">
+        <div className="containerlg">
             <h5>Welcome back !</h5>
             
 

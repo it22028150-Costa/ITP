@@ -29,3 +29,77 @@
     margin-right: 30px; /* Adjust the value as needed */
   }
 
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+    position: relative;
+    width: 50%;
+  }
+  
+  /* Make the image responsive */
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Style the button and place it in the middle of the container/image */
+  .container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .container .btn:hover {
+    background-color: black;
+  }
+
+  .containeruser{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .hdrimg{
+    width: 33.3%;
+    height: 200px;
+  }
+
+  .hdrimg2{
+    height: 200px;
+  }
+  
+  .horizontal-buttons {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  
+  .image-button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-right: 10px; /* Add margin between buttons */
+    width: 500px; /* Set the width of the buttons */
+    height: 300px; /* Set the height of the buttons */
+  }
+  
+  .image-button img {
+    width: 100%; /* Make the image fill the button */
+    height: 100%; /* Make the image fill the button */
+  }
+  
+  h1{
+    font-weight: bold;
+    text-decoration: double;
+    text-shadow: 0cqb;
+    color: black;  }
+
+
+    

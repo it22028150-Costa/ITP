@@ -17,6 +17,8 @@ export default function Signup(){
 
 
 
+    
+
 
     function sendData(e){
         e.preventDefault();
@@ -39,7 +41,9 @@ export default function Signup(){
 
            
         }).catch((err)=>{
-            alert(err)
+            alert(err.response.data.message)
+
+            
         })
 
         }
@@ -52,7 +56,7 @@ export default function Signup(){
 
     return(
 
-        <div class ="container">
+        <div class ="containerh">
 
 
             <form onSubmit={sendData}  style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
