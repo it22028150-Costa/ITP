@@ -164,7 +164,12 @@ const deleteDoctor = asyncHandler(async(req,res) => {
 const findDoctor = asyncHandler(async(req,res) => {
     console.log(req.query)
     let {email, password}  = req.query;
-    const currentuser = await User.findOne({email:email});
+    const currentuser = await Doctor.findOne({Email:email});
+
+    if(!currentuser){
+        return res.status(400).json({message:'User Not Found'})
+    }
+    console.log(currentuser)
     if(password !== currentuser.password){
         return res.status(400).json({message:'Password Wrong'})
     }

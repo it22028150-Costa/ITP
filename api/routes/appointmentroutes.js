@@ -74,6 +74,15 @@ router.get("/order_appointment/:id", async (req, res) => {
     }
 });
 
-
+router.get("/doctorlist", async(req,res) => {
+    
+    const {doctormail} = req.body
+    console.log(doctormail)
+    const list = await appointmentmodel.find({'doctormail': doctormail}).select().lean() //Lean makes sure that the methods are not returned with the response
+    if (!list?.length){
+        return res.status(400).json({message: `No Response`})
+    }
+    res.json(list)
+})
 
 module.exports = router;
