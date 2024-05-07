@@ -16,7 +16,7 @@ const getOrderDetails = asyncHandler(async(req,res) => {
 
     const list = await Order.find({'patientemail': useremail}).select().lean() //Lean makes sure that the methods are not returned with the response
     if (!list?.length){
-        return res.status(400).json({message: `No Order details for ${useremail} found`})
+        return res.status(400).json({message: `No Order details found`})
     }
     res.json(list)
     console.log(list)

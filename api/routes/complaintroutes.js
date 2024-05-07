@@ -1,7 +1,7 @@
 const express=require("express")
 
 
-const complaintmodel = require("../models/complaintmodel");
+const complaintmodel = require("../models/complaintModel");
 
 const router = express.Router();
 
