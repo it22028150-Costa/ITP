@@ -11,8 +11,9 @@ const ViewReservations = () =>{
     useEffect(() => {
       const fetchReservations = async () => {
           try{
-              const response = await axios.get('http://localhost:3500/doctor/reservations',{
-                  params: {doctormail: "aranasinghe@collective.com"
+              console.log(localStorage.getItem('currentDoctor'))
+              const response = await axios.get('http://localhost:3500/appointments/doctorlist',{
+                  params: {doctormail:localStorage.getItem('currentDoctor')
                   }
               });
               setReservations(response.data);
@@ -82,10 +83,10 @@ const ViewReservations = () =>{
                                 reservations.map((e1)=>{
                                 return(
                                     <tr class="tablerowfn" key={e1._id}> 
-                                        <td class="cellfn" id="celldetail"> {e1.date}</td> 
-                                        <td class="cellfn" id="cellqty"> {e1.time}</td> 
-                                        <td class="cellfn" id="cellamount"> {e1.patientname}</td> 
-                                        <td class="cellfn" id="cellremarks"> {e1.remarks}</td> 
+                                        <td class="cellfn" id="celldetail"> {e1.patientName}</td> 
+                                        <td class="cellfn" id="cellqty"> {e1.date}</td> 
+                                        <td class="cellfn" id="cellamount"> {e1.time}</td> 
+                                        
 
                                         
                                     

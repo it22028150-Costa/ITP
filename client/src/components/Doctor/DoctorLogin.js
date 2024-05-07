@@ -11,6 +11,7 @@ export default function DoctorLogin(){
     const[passwordadd,setPassword] = useState("");
     const navigate = useNavigate();
     const[showSuccessModal,setShowSuccessModal] = useState("false");
+    localStorage.setItem('currentDoctor',"")
     
 
     function log(e){
@@ -23,7 +24,7 @@ export default function DoctorLogin(){
                 console.log(result.data.message)              
             }
             localStorage.setItem('currentDoctor',emailadd)
-            console.log(`The current user is ${localStorage.getItem('currentDoctor')}`)
+            
             setShowSuccessModal(true);
             window.location.href ='/doctor/reservations';  
         }).catch((err)=>{
