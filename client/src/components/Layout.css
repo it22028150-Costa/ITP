@@ -107,6 +107,12 @@ color: rgb(44, 175, 164);
     height: 90vh;
     flex-direction: column;
     justify-content: space-between;
+    flex: 1; 
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
     
 }
 
@@ -118,5 +124,3 @@ color: rgb(44, 175, 164);
     height: 15%;
     border-top: 1px solid #cfcfcf; 
 }
-
-

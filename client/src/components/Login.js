@@ -3,6 +3,8 @@ import axios from "axios";
 import { Routes, Route,Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import "./Forms.css";
+import "./Login.css";
+
 
 
 export default function Login(){
@@ -39,46 +41,33 @@ export default function Login(){
         };
 
     return(
-        <div>
-
-<div>
-                    <p><Link to="/doctor/doctorlogin">Doctor Login </Link></p>
-                </div>
-
-            <label style={{ fontSize: 30, fontWeight: "bold", textAlign:"center" }}>HealthHub Login</label>
-            <h5>Please login to proceed</h5>
-        <div className="containerlg">
-            <h5>Welcome back !</h5>
-            
-
-        <form onSubmit={log}  style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
-
-        <header style={{ fontSize: 30, fontWeight: "bold", textAlign: "center" }}> LOGIN </header>
-
-            <div class="mb-3">
-                <label for="email" > Email </label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" 
-                onChange ={(e)=>{
+    <div class="background">
+    <div className="containerlmwuseradmin" style={{ marginTop: "50px" }}>
+    <header style={{ fontSize: 30, fontWeight: "bold", textAlign: "center" }}> LOGIN </header>
+    <h3>Welcome back !</h3>
+    <form onSubmit={log} style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
+        <div className="mb-3">
+            <label htmlFor="email"> Email </label>
+            <input type="email" className="form-control" id="email" placeholder="Enter your email"
+                onChange={(e) => {
                     setEmail(e.target.value);
-                }}/>
-            </div>
-
-            <div class="mb-3">
-                <label for="password" >Password </label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password"
-                onChange ={(e)=>{
+                }} />
+        </div>
+        <div className="mb-3">
+            <label htmlFor="password">Password </label>
+            <input type="password" className="form-control" id="password" placeholder="Enter your password"
+                onChange={(e) => {
                     setPassword(e.target.value);
-                }}/>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-
-            <div>
-                    <p>Admin? <Link to="/admin/login">Login here</Link></p>
-                </div>
-
+                }} />
         </div>
-        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+    </form>
+    <div class="logindir">
+        <p>Doctor?<Link to="/doctor/doctorlogin">Login here </Link></p>
+        <p>Admin? <Link to="/admin/login">Login here</Link></p> 
+        
+    </div>
+</div>
+</div>
     )
 }

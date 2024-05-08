@@ -1,6 +1,7 @@
 import React,{useState} from "react"
 import axios from "axios";
 import "./Forms.css";
+import "./signup.css"
 
 
 export default function Signup(){
@@ -56,6 +57,7 @@ export default function Signup(){
 
     return(
 
+        <div class="background">
         <div class ="containerh">
 
 
@@ -145,6 +147,7 @@ export default function Signup(){
 
             <button type="submit" class="btn btn-primary" >Submit</button>
             </form>
+        </div>
         </div>
     )
 }
