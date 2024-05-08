@@ -81,12 +81,7 @@ const UserAdmins = () => {
 
                 <br></br>
                 <br></br>
-                <div className="searchbtnfn">
-                <br></br>
-                    <button  onClick={handlePrintUsers}>User Report</button> <br></br><br></br>
-                    <button onClick={handlePrintDoctors}>Doctor Report</button>
-
-                </div>
+                
             </div>
 
             <div className="viewtablefn">
@@ -124,6 +119,11 @@ const UserAdmins = () => {
                     </table>
                 </div>
             </div>
+            <div className="searchbtnfn">
+                <br></br>
+                <button onClick={handlePrintUsers} style={{ width: "200px", height: "40px", margin: "0 auto", backgroundColor: "#007bff", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer", transition: "background-color 0.3s ease" }}>User Report</button>
+                </div>
+
             <div className="viewtablefn">
                 <div ref={componentPDFDoctors} className="table-container">
                 <h2>Doctors</h2>
@@ -153,6 +153,14 @@ const UserAdmins = () => {
                     </table>
                 </div>
             </div>
+
+            <div className="searchbtnfn">
+                <br></br>
+                    <button onClick={handlePrintDoctors} style={{ width: "200px", height: "40px", margin: "0 auto", 
+                    backgroundColor: "#007bff", color: "#fff", border: "none", borderRadius: "5px", 
+                    cursor: "pointer", transition: "background-color 0.3s ease" }}>Doctor Report</button>
+
+                </div>
         </div>
     );
 };

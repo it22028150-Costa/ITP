@@ -2,9 +2,13 @@
 
 const express = require("express");
 const router = express.Router();
-const authController = require("../controllers/authController");
+
+const {adminLogin} = require("../controllers/adminController")
+
+const admin = require("../models/Admin");
+
 
 // Route for admin login
-router.post("/login", authController.adminLogin);
+router.get("/login", adminLogin);
 
 module.exports = router;
