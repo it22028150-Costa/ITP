@@ -1,6 +1,7 @@
 import React,{useState} from "react"
 import axios from "axios";
 import "./Forms.css";
+import "./signup.css"
 
 
 export default function Signup(){
@@ -62,9 +63,14 @@ export default function Signup(){
 
     return(
 
+
+        <div class="background">
+        <div class ="containerh">
+
         <div class ="containerlmwuseradmin" style={{ marginTop: "50px" }}>
 
 <h1 >SIGN UP</h1>
+
 
             <form onSubmit={sendData}  style={{ fontSize: 20, fontWeight: "bold", textAlign: "left" }}>
 
@@ -155,6 +161,7 @@ export default function Signup(){
 <br/>
             <button type="submit" class="btn btn-primary" >Submit</button>
             </form>
+        </div>
         </div>
     )
 }

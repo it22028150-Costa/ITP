@@ -56,7 +56,7 @@ const filterdata = (searchKey) => {
              <div className='searchbtn'>
         <input  type="date" onChange={(e)=>setsearchkey(e.target.value)} placeholder='search' className='in'/> <t></t> 
        
-        <button  id='search-btn'  onClick={(e)=>handlesearch(e)}> search </button>
+        <button  id='search-btn'  onClick={(e)=>handlesearch(e)}> Search </button>
         </div>   
         <br></br>   <br></br>
                 <div ref={componentPDF} style={{width:'100%'}}>
@@ -96,7 +96,7 @@ const filterdata = (searchKey) => {
               </tbody>
   </table>
   </div>   <br></br>   <br></br>
-  <button onClick={generatePDF}>Download Repoart</button>
+  <button onClick={generatePDF}>Download Report</button>
         </div>
     )
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import "./Forms.css";
+import "./Login.css";
+
 
 export default function Login() {
 
@@ -53,6 +55,16 @@ export default function Login() {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Link to="/doctor/doctorlogin">Doctor Login </Link></p>
             </div>
+
         </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+    </form>
+    <div class="logindir">
+        <p>Doctor?<Link to="/doctor/doctorlogin">Login here </Link></p>
+        <p>Admin? <Link to="/admin/login">Login here</Link></p> 
+        
+    </div>
+</div>
+</div>
     )
 }

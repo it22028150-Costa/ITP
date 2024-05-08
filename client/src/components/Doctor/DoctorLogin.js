@@ -17,7 +17,7 @@ export default function DoctorLogin(){
     function log(e){
         
         e.preventDefault()
-        axios.get(`http://localhost:3500/doctor/get`,{params:{email: emailadd, password:passwordadd}}).
+        axios.get('http://localhost:3500/doctor/get',{params:{email: emailadd, password:passwordadd}}).
         then((result)=>{
             
             if(result.data.message === "Login successful"){     
@@ -26,7 +26,7 @@ export default function DoctorLogin(){
             localStorage.setItem('currentDoctor',emailadd)
             
             setShowSuccessModal(true);
-            window.location.href ='/doctor/reservations';  
+            // window.location.href ='/doctor/reservations';  
         }).catch((err)=>{
             console.log(err)
             alert(err.response.data.message)
@@ -41,6 +41,7 @@ export default function DoctorLogin(){
         };
 
     return(
+        <div class="background">
         <div>
             <label style={{ fontSize: 30, fontWeight: "bold", textAlign:"center" }}>HealthHub Login</label>
             <h5>Please login to proceed</h5>
@@ -68,9 +69,10 @@ export default function DoctorLogin(){
                 }}/>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="submitbtndr">Submit</button>
             </form>
 
+        </div>
         </div>
         </div>
     )

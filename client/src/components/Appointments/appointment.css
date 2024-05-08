@@ -7,7 +7,7 @@
   background-color: #5dc77d;
     margin-top:5%;
   }
-
+  
   .add-order form {
     display: flex;
     flex-direction: column;
@@ -26,23 +26,20 @@
     font-size: 16px;
   }
   
-  .add-order button {
-    position: absolute;
-    top:73%;
-    left:47%;
+  .register button {
     padding: 10px 20px;
-    background-color: #00ff4c;
+    background-color: #00bb48;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
   }
+
   
-  .add-order button:hover {
-    background-color: #00b327;
+  .register button:hover {
+    background-color: #00bb48;
   }
-  #hbtn{
+  .hbtn{
     position: absolute;
     top:82%
   }
