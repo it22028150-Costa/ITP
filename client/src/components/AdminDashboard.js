@@ -1,32 +1,50 @@
-// AdminDashboard.js
-
 import React from "react";
-import { Routes, Route,Link} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
     return (
-        <div>
-            <h1>Welcome to Admin Dashboard</h1>
-            {/* Add any dashboard content here */}
+        <div style={styles.containersidebar}>
+            <div style={styles.sidebar}>
+                <ul>
+                    <li><Link to="/admin/users">Users</Link></li>
+                    <br/>
 
-            <div>
-            <p style={{ fontSize: '18px', fontWeight:"bold" }}>
-  <Link to="/admin/users" style={{ fontSize: '60px' }}>Users</Link> 
-  <br/>
-  <Link to="/admin/users" style={{ fontSize: '60px' }}>Staff</Link>
-  <br/>
+                    <li><Link to="/admin/staff">Staff</Link></li>
+                    <br/>
 
-  <Link to="/admin/users" style={{ fontSize: '60px' }}>Appointments</Link>
-  <br/>
+                    <li><Link to="/admin/appointments">Appointments</Link></li>
+                    <br/>
 
-  <Link to="/admin/users" style={{ fontSize: '60px' }}>Customer Complaints</Link>
-  <br/>
+                    <li><Link to="/admin/complaints">Customer Complaints</Link></li>
+                </ul>
+            </div>
+            <div style={styles.content}>
+                
+                <div style={{ marginBottom: '20px' }}>
+                <h1>Welcome to Admin Dashboard</h1>
 
-</p>
+                    <img src="/admin.jpg" alt="Admin Photo" style={{ width: '100%', borderRadius: '5px' }} />
                 </div>
+                {/* Content of your dashboard goes here */}
+            </div>
         </div>
     );
 }
 
 export default AdminDashboard;
+
+const styles = {
+    containersidebar: {
+        display: 'flex',
+        minHeight: '100vh'
+    },
+    sidebar: {
+        width: '250px',
+        backgroundColor: '#ffffff',
+        padding: '20px'
+    },
+    content: {
+        flex: '1',
+        padding: '20px'
+    }
+};
