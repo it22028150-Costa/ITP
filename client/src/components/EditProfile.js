@@ -20,7 +20,7 @@ export default function EditProfile(){
         const edit = async ()=>{
             try{
                 const response = await axios.get('http://localhost:3500/user',{
-                    params: {email:'lihinimaleesha24@gmail.com'
+                    params: {email: localStorage.getItem('currentUser')
                 }
             
                 });
@@ -52,14 +52,27 @@ export default function EditProfile(){
 
     function sendData(e){
         e.preventDefault();
-        const email = "lihinimaleesha24@gmail.com"
-        const updateUser ={
-            name,
+        const email = localStorage.getItem('currentUser')
+        const updateUser = {
             email,
-            contact,
-            address
-
-
+        };
+    
+        if (name) {
+            updateUser.name = name;
+        }
+    
+        if (contact) {
+            updateUser.contact = contact;
+        }
+    
+        if (address) {
+            updateUser.address = address;
+        }
+    
+        // Check if there are any fields to update
+        if (Object.keys(updateUser).length === 1) {
+            alert("No fields to update.");
+            return;
         }
 
         console.log(updateUser)
@@ -90,7 +103,7 @@ export default function EditProfile(){
 
     return(
 
-        <div class ="containeredt">
+        <div class ="containerlmwuseradmin">
 
 
             <form onSubmit={sendData} style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
@@ -124,13 +137,13 @@ export default function EditProfile(){
 
 
             <button type="submit" class="btn btn-primary" >Update Profile</button>
-            <br/>
-            
-
-            </form>
-            <br/>
+            <br/>            <br/>
 
             <button type="submit" class="btn btn-primary" onClick={deleteUser}>Delete Profile</button>
+
+
+            </form>
+
         </div>
     )
 }

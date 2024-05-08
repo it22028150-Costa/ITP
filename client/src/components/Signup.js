@@ -16,7 +16,13 @@ export default function Signup(){
     const[showSuccessModal,setShowSuccessModal] = useState("false");
 
 
-
+    const handleChange = (event) => {
+        const { value } = event.target;
+        // Use a regular expression to remove non-alphabetic characters
+        const alphaOnly = value.replace(/[^a-zA-Z]/g, '');
+        // Update the state with the alphabetic-only value
+        setName(alphaOnly);
+      };
     
 
 
@@ -56,17 +62,16 @@ export default function Signup(){
 
     return(
 
-        <div class ="containerh">
+        <div class ="containerlmwuseradmin" style={{ marginTop: "50px" }}>
 
+<h1 >SIGN UP</h1>
 
-            <form onSubmit={sendData}  style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
-            <header>SIGN UP</header>
+            <form onSubmit={sendData}  style={{ fontSize: 20, fontWeight: "bold", textAlign: "left" }}>
+
             <div class="mb-3">
-                <label for="name" >Name </label>
+                <label for="name" >Name</label>
                 <input type="name" class="form-control" id="name" placeholder="Enter your name"
-                onChange ={(e)=>{
-                    setName(e.target.value);
-                }}/>
+               onChange={handleChange}/>
             </div>
 
             <div class="mb-3">
@@ -87,7 +92,7 @@ export default function Signup(){
 
 
         <div className="mb-3">
-            <label>Choose your gender:</label> 
+            <label> Gender: &nbsp;&nbsp;</label> 
                 <label htmlFor="male">Male  </label>
                 <input
                     type="radio"
@@ -97,7 +102,7 @@ export default function Signup(){
                     checked={gender === "male"} // Check if gender is male
                     onChange={(e) => {
                     setGender(e.target.value);
-                    }} />
+                    }} /> &nbsp;&nbsp;
 
                 <label htmlFor="female">   Female</label>
                     <input
@@ -110,14 +115,19 @@ export default function Signup(){
                         setGender(e.target.value);
                         }}/>
         </div>
+<br/>
+
 
 
             <div class="mb-3">
-                <label for="dob">DOB:</label>
+                <label for="dob">Date of Birth: &nbsp;&nbsp;&nbsp;</label>
                 <input type="date" id="dob" name="dob"   onChange ={(e)=>{
                     setDob(e.target.value);
                 }}/>
             </div>
+
+            <br/>
+
 
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
@@ -142,7 +152,7 @@ export default function Signup(){
                     setPassword(e.target.value);
                 }}/>
             </div>
-
+<br/>
             <button type="submit" class="btn btn-primary" >Submit</button>
             </form>
         </div>

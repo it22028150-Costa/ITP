@@ -1,13 +1,14 @@
 /* Signup.css */
 
-.container {
-    max-width: 500px;
+.containerlmwuseradmin {
+    width: 700px;
     margin: auto;
-    padding: 20px;
+    padding: 50px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+    font-family: "Times New Roman", Times, serif;
+      }
   
   .form-control {
     width: 100%;
@@ -20,6 +21,17 @@
   
   .form-check {
     margin-bottom: 15px;
+  }
+
+  .btn-delete {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
   }
   
   .btn-primary {
@@ -38,6 +50,7 @@
   }
   
   .label {
-    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
+ 
