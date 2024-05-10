@@ -12,10 +12,9 @@ function HealthDetails(){
 const getfetchdata=async()=>{
     try{
     const data=await axios.get("http://localhost:3500/doctor/listdr")
-    console.log(data.data.success)
-    if(data.data.success){
-        setshowdiscounts(data.data.data)
-    }
+    console.log(data.data)
+    setshowdiscounts(data.data)
+    
 }catch(err){
     alert(err)
 }

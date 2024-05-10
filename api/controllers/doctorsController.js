@@ -100,9 +100,11 @@ const getAllDoctors = asyncHandler(async(req,res) => {
 const createNewDoctor = asyncHandler(async(req,res) => {
         console.log(req.body)
 
-        const { name, Email, password, hospital, gender, contactNumber, specialization, fee} = req.body 
+        const { name, Email, password, hospital, gender, contactNumber, specialization} = req.body 
          
-    
+        if(!name || !Email || !password || !gender || !contactNumber || !specialization){
+            res.status(400).json({message: 'Fill out All data'})
+        }
         const doctor = {
             name,
             Email,

@@ -27,6 +27,11 @@ function Header(){
   </button>
   </a>
 
+  <a href="/complain">
+  <button className="image-button" onClick={() => (window.location.href = "/adminlog")}>
+    <img src="./complaint.png" alt="Button 1" /> <h1>Complaints</h1>
+  </button>
+  </a>
   
 </div>
 

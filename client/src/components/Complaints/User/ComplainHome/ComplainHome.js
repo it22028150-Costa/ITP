@@ -20,12 +20,7 @@ function ComplainHome() {
               My Complain
             </button>
             <br></br>
-            <button
-              className="home_btn_set"
-              onClick={() => (window.location.href = "/adminlog")}
-            >
-              Admin
-            </button>
+            
           </div>
         </div>
       </div>

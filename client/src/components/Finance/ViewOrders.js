@@ -21,7 +21,7 @@ const ViewOrders = () =>{
           }catch(err){
               console.error(err);
               alert(err.response.data.message)
-              window.location.href ='/loginpg';
+              window.location.href ='/header';
           }
       };
       fetchOrders(); 
@@ -52,7 +52,7 @@ const ViewOrders = () =>{
     }
     const filterdata = (searchKey) => {
         const filteredData = orders.filter(orders =>
-            orders.orderDetails.toLowerCase().includes(searchKey.toLowerCase())
+            orders.doctor.toLowerCase().includes(searchKey.toLowerCase())
         );
         setOrder(filteredData);
     }

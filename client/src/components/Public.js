@@ -9,8 +9,9 @@ const Public = () => {
   } else {
     console.log('No saved Login information')
   }
+  localStorage.removeItem('currentDoctor')
   return (
-    <div id='bgimage'>
+    <div class='bgimage'>
       <section className="public" class="background">
       <main className="public_main">
 
@@ -19,8 +20,7 @@ const Public = () => {
 
 
           <p>Healthhub is your one-stop application for all your healthcare needs</p>
-
-
+          <div class="imgpublic">
           <button type="button" class="image-button">
             <img src="./img2.jpg" width="250"/> Book appointments with ease
           </button>
@@ -30,7 +30,7 @@ const Public = () => {
           <button type="button" class="image-button">
             <img src="./medd.jpg" width="250"/>Keep track of your medical records
           </button>
-
+          </div>
           <br/>             <br/>
           <br/>
           <br/>

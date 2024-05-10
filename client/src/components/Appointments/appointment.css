@@ -43,3 +43,9 @@
     position: absolute;
     top:82%
   }
+
+  #regbtnapp{
+    width: 200px;
+    height: 50px;
+    margin-top:50px;
+  }

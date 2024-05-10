@@ -23,13 +23,13 @@ function AddComplaints() {
     e.preventDefault();
     console.log(inputs);
     await sendRequest();
-    window.alert("Complain Send Successfully!");
-    window.location.reload();
+  
+    window.location.href ='/complain';
   };
   const sendRequest = async () => {
-    await axios.post("http://localhost:3500/complaindb", {
+    await axios.post("http://localhost:3500/complaindb/create_complaint", {
       name: inputs.name,
-      gmail: inputs.gmail,
+      gmail: localStorage.getItem("currentUser"),
       date: inputs.date,
       time: inputs.time,
       phone: inputs.phone,
@@ -52,16 +52,9 @@ function AddComplaints() {
             name="name"
           />
           <br></br>
-          <label className="form_box_item_lable">gmail</label>
-          <br></br>
-          <input
-            className="form_box_item_input"
-            type="email"
-            required
-            value={inputs.gmail}
-            onChange={handleChange}
-            name="gmail"
-          />
+          
+          
+          
           <br></br>
           <label className="form_box_item_lable">date</label>
           <br></br>

@@ -6,6 +6,7 @@ const Admin = require('../models/Admin'); // Assuming you have an Admin model
 const adminLogin = async (req, res) => {
     const { email, password } = req.query;
     console.log(req.query)
+    console.log(req.body)
 
     try {
         // Find admin by email

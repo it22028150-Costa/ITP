@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 import axios from "axios";
-//import "./Forms.css";
+// import "../Forms.css";
 
 
 export default function DoctorSignup(){
@@ -12,7 +12,6 @@ export default function DoctorSignup(){
     const[hospital,sethospital]= useState("");
     const[specialization,setspecialization] = useState("");
     const[password,setPassword] = useState("");
-    const[fee,setfee] = useState()
     const[showSuccessModal,setShowSuccessModal] = useState("false");
 
 
@@ -27,8 +26,7 @@ export default function DoctorSignup(){
             gender,
             hospital,
             specialization,
-            password,
-            fee
+            password
 
         }
 
@@ -39,7 +37,8 @@ export default function DoctorSignup(){
 
            
         }).catch((err)=>{
-            alert(err)
+            console.log(err)
+            alert(err.response.data.message)
         })
 
         }
@@ -51,8 +50,9 @@ export default function DoctorSignup(){
 
 
     return(
+        <div class="background">
 
-        <div class ="container">
+        <div class ="containerdrsignup">
 
 
             <form onSubmit={sendData}  style={{ fontSize: 20, fontWeight: "bold", textAlign: "center" }}>
@@ -133,16 +133,9 @@ export default function DoctorSignup(){
                 }}/>
             </div>
 
-            <div class="mb-3">
-                <label for="fee" >Fee </label>
-                <input type="number" class="form-control" id="fee" placeholder="Enter your Fee per Reservation"
-                onChange ={(e)=>{
-                    setfee(e.target.value);
-                }}/>
-            </div>
-
             <button type="submit" class="btn btn-primary" >Submit</button>
             </form>
+        </div>
         </div>
     )
 }

@@ -72,7 +72,6 @@ const ViewReservations = () =>{
                             <tr className='headerrowfn'>
                                 <th class="headerfn">Date </th>
                                 <th class="headerfn">Time</th>
-                                <th class="headerfn">Patient Name</th>
                                 <th class="headerfn">Remarks</th>
                                 
                             </tr>
@@ -83,9 +82,10 @@ const ViewReservations = () =>{
                                 reservations.map((e1)=>{
                                 return(
                                     <tr class="tablerowfn" key={e1._id}> 
-                                        <td class="cellfn" id="celldetail"> {e1.patientName}</td> 
-                                        <td class="cellfn" id="cellqty"> {e1.date}</td> 
-                                        <td class="cellfn" id="cellamount"> {e1.time}</td> 
+                                        <td class="cellfn" id="celldetail"> {e1.date}</td> 
+                                        <td class="cellfn" id="cellqty"> {e1.time}</td> 
+                    
+                                        <td class="cellfn" id="cellamount"> {e1.remarks}</td> 
                                         
 
                                         

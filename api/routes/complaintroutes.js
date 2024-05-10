@@ -13,6 +13,48 @@ router.get("/_complaint",async(req,res)=>{
 })
 
 
+
+router.get("/getcomplaints",async(req,res) => {
+    
+    const {gmail} = req.query
+    
+
+    if(!gmail){
+        return res.status(400).json({message: `Please Sign into view Complaint Details`})
+    }
+
+    const list = await complaintmodel.find({'gmail': gmail}).select().lean() //Lean makes sure that the methods are not returned with the response
+    if (!list?.length){
+        return res.status(400).json({message: `No Complaints currently found, Please add a complaint to view your complaints`})
+    }
+    res.json(list)
+    console.log(list)
+})
+
+router.get("/getone",async(req,res) => {
+    console.log(req.query)
+    const {id} = req.query
+
+    console.log("id Start")
+    console.log(id)
+    console.log("id end")
+    
+
+    if(!id){
+        return res.status(400).json({message: `Cannot find Complaint`})
+    }
+
+    const list = await complaintmodel.findById(id).exec()//Lean makes sure that the methods are not returned with the response
+    console.log("Start of Console log")
+    res.json(list)
+    console.log(list)
+})
+
+    
+
+
+
+
 router.post("/create_complaint",async(req,res)=>{
     const data=new complaintmodel(req.body)
     await data.save()
@@ -20,7 +62,8 @@ router.post("/create_complaint",async(req,res)=>{
 })
 
 
-router.put("/update_complaint",async(req,res)=>{
+router.patch("/update",async(req,res)=>{
+    console.log(req.body)
     const {id,...rest}=req.body
     const data=await complaintmodel.updateOne({_id:id},rest)
     res.send({success:true,message:"updated successfuly",data:data})
@@ -29,8 +72,9 @@ router.put("/update_complaint",async(req,res)=>{
 
 
 
-router.delete("/delete_complaint/:id",async(req,res)=>{
-const id=req.params.id
+router.delete("/delete_complaint",async(req,res)=>{
+const id=req.query.id
+console.log(id)
 const data=await complaintmodel.deleteOne({_id:id})
 res.send({success:true,message:"deleted successfully",data:data})
 })

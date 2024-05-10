@@ -83,7 +83,7 @@ function Appointment(){
     <input type="time" id="time" name="time" onChange={handleonchange}/><br></br> 
     <lable>Add Remarks to Doctor:</lable>
     <input type="text" id="remarks" name="remarks" onChange={handleonchange}/><br></br>
-    <button id="regbtn">Create Reservation</button>
+    <button id="regbtnapp">Create Reservation</button>
 
 
     </form><br></br> 

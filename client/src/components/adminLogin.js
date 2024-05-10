@@ -16,6 +16,8 @@ export default function AdminLogin(){
     function log(e){
         
         e.preventDefault()
+        console.log(emailadd)
+        console.log(passwordadd)
         axios.get(`http://localhost:3500/admin/login`,{params:{email: emailadd, password:passwordadd}}).
         then((result)=>{
             
@@ -39,7 +41,7 @@ export default function AdminLogin(){
         };
 
     return(
-        <div>
+        <div class="background">
         <div className="containerlmwuseradmin">
             <h5>Welcome back !</h5>
             
