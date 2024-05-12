@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
+import './MyComplaints.css'
 
 function MyComplaints() {
   const [complain, setComplain] = useState([]);
@@ -61,31 +62,34 @@ function MyComplaints() {
 
   return (
     <div className="bk_img">
+      <div class="fncbtncmp">
       <button
-        className="home_btn_set"
+        class="addcmp"
         onClick={() => (window.location.href = "/addcomplain")}
       >
         Add Complain
       </button>
-      <button className="home_btn_set" onClick={handlePrint}>
+      <button class="printbtncmp" onClick={handlePrint}>
         Print
       </button>
-      <div class='searchbtnfn'>
+      </div>
+      <div class='searchbtncmp'>
                 <input  type="text" onChange={(e)=>setsearchkey(e.target.value)} placeholder='Details..' class='infn'/> <t></t> 
        
-                <button  id='search-btnfn'  onClick={(e)=>handlesearch(e)}> Search </button>
-            </div>
+                <button  id='searchbtn'  onClick={(e)=>handlesearch(e)}> Search </button>
+        </div>
 
       <div className="tbl_data" ref={componentRef}>
         <table className="table_details_admin">
           <thead>
             <tr className="tble_card_details_tr">
-              <th className="admin_tbl_th">Name</th>
-              <th className="admin_tbl_th">Phone</th>
-              <th className="admin_tbl_th">time</th>
-              <th className="admin_tbl_th">type</th>
-              <th className="admin_tbl_th">complaindetail</th>
-              <th className="admin_tbl_th">reply</th>
+              <th className="admin_tbl_th">Title</th>
+              <th className="admin_tbl_th">Phone</th> 
+              <th className="admin_tbl_th">Date</th>                
+              <th className="admin_tbl_th">Time</th>
+              <th className="admin_tbl_th">Type</th>
+              <th className="admin_tbl_th">Complain Details</th>
+             
               <th className="admin_tbl_th">Actions</th>
             </tr>
           </thead>
@@ -94,25 +98,24 @@ function MyComplaints() {
               <tr>
                 <td className="admin_tbl_td">{complain.name}</td>
                 <td className="admin_tbl_td">{complain.phone}</td>
+                <td className="admin_tbl_td">{complain.date}</td>
                 <td className="admin_tbl_td">{complain.time}</td>
                 <td className="admin_tbl_td">{complain.type}</td>
                 <td className="admin_tbl_td">{complain.complaindetail}</td>
-                <td className="admin_tbl_td">
-                  {complain.reply ? complain.reply : "Not yet replied"}
-                </td>
+                
                 <td className="admin_tbl_td">
                   <Link
                     onClick={() => localStorage.setItem("complainNo", complain._id)}
                     to={`/updatecomplain`}
                     className="booknow_btn"
                   >
-                    Update
+                    UPDATE
                   </Link>
                   <button
                     className="btn_dash_admin_dlt"
                     onClick={() => deleteHandler(complain._id)}
                   >
-                    Delete
+                    DELETE
                   </button>
                 </td>
               </tr>

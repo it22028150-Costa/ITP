@@ -91,46 +91,13 @@ function handleSubmit(e){
 
 
 
-  // const sendRequest = async () => {
-  //   try {
-  //     await axios.put(`http://localhost:3500/complaindb/${_id}`, {
-  //       name: String(inputs.name),
-  //       gmail: String(inputs.gmail),
-  //       date: String(inputs.date),
-  //       time: String(inputs.time),
-  //       phone: String(inputs.phone),
-  //       type: String(inputs.type),
-  //       complaindetail: String(inputs.complaindetail),
-  //     });
-  //   } catch (error) {
-  //     // Handle error if needed
-  //     console.error("Error updating details:", error);
-  //   }
-  // };
-  // const handleChange = (e) => {
-  //   const { name, value, type, checked } = e.target;
-  //   const newValue = type === "checkbox" ? checked : value;
-
-  //   setInputs((prevState) => ({
-  //     ...prevState,
-  //     [name]: newValue,
-  //   }));
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log(inputs);
-  //   sendRequest().then(() => {
-  //     window.alert("Update successfully!");
-  //     history("/mycomplain");
-  //   });
-  // };
+  
   return (
     <div className="bk_img">
       {profile && (
       <div className="fom_main">
         <form onSubmit={handleSubmit} className="from_nw">
-          <label className="form_box_item_lable">Full Name</label>
+          <label className="form_box_item_lable">title</label>
           <br></br>
           <input
             className="form_box_item_input"
@@ -171,19 +138,19 @@ function handleSubmit(e){
             placeholder={profile.phone}
           />
           <br></br>
-          <label className="form_box_item_lable">Select complaint type</label>
+          <label className="form_box_item_lable">Select Complaint Type</label>
           <br></br>
           <select
             className="form_box_item_input"
             onChange={(e)=>{setType(e.target.value)}}
             
           >
-            <option value="">Select complaint type</option>
-            <option value="medical care issue">medical care issue</option>
-            <option value="communication">communication</option>
-            <option value="staff behaviour">staff behaviour</option>
-            <option value="facility conditions">facility conditions</option>
-            <option value="administrative issues">administrative issues</option>
+            <option value="">Select Complaint Type</option>
+            <option value="medical care issue">Medical care issue</option>
+            <option value="communication">Communication</option>
+            <option value="staff behaviour">Staff behaviour</option>
+            <option value="facility conditions">Facility conditions</option>
+            <option value="administrative issues">Administrative issues</option>
           </select>
 
           <br></br>
@@ -199,7 +166,7 @@ function handleSubmit(e){
           />
           <br></br>
           <button type="submit" className="admin_form_cneter_btn">
-            Update
+            UPDATE
           </button>
         </form>
       </div>

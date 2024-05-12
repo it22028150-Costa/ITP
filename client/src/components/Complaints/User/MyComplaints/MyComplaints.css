@@ -1,0 +1,26 @@
+.printbtncmp,
+.addcmp {
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: center; /* Align horizontally */
+    align-items: center; /* Align vertically */
+    margin: auto; /* Center horizontally */
+}
+
+.searchbtncmp {
+    width: 175px;
+    height: 50px;
+}
+
+.fncbtncmp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 30px;
+    height: 100px;
+    text-align: center;
+    align-self: center;
+}
+

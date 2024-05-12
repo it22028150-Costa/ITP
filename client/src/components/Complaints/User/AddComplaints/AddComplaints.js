@@ -41,7 +41,7 @@ function AddComplaints() {
     <div className="bk_img">
       <div className="fom_main">
         <form onSubmit={handleSubmit} className="from_nw">
-          <label className="form_box_item_lable">Full Name</label>
+          <label className="form_box_item_lable">Title</label>
           <br></br>
           <input
             className="form_box_item_input"
